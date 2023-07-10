@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+        <head th:insert="~{template.html :: head}"></head>
+
+    <body id="page-top">
+        <!-- Navigation-->
+        <div th:insert="~{template.html :: nav}"></div> 
+
+        <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <a href="inicio.html" class="btn btn-success" role="button" aria-pressed="true">Regresar</a>
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                        Made by
+                        <span class="text-primary">Nico</span>
+                    </h1>
+                    <nav class="navbar navbar-light bg-light justify-content-between">
+                        <a class="navbar-brand">Busca algun producto</a>
+                        <form class="form-inline">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
+                        </form>
+                    </nav>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Experience-->
+            <section class="resume-section" id="experience">
+                <div class="resume-section-content">
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Nombre</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="product : ${products}">
+                                <td><span th:text="${product.id}"></span></td>
+                                <td><span th:text="${product.nombre}"> </span></td>
+                                <td><img alt="..." class="card-img-top" th:src="${product.ruta_imagen}"/>
+                                </td>
+                                <td>
+                                <button  type="button" th:attr="idProduct=${product.id}"
+                                    class="btn btn-Primary open-modal" data-toggle="modal" data-target="#productModal" >
+                                Mas Informacion
+                                </button>
+                                </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+        </div>
+        <div th:insert="~{template.html :: scripts}"></div>  
+    </body>
+    <footer th:insert="~{template.html :: footer}"></footer>
+</html>
