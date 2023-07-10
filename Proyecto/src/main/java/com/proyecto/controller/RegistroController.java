@@ -1,58 +1,49 @@
 package com.proyecto.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+
+
 import com.proyecto.entities.Usuario;
 import com.proyecto.service.IUsuarioService;
+import org.springframework.web.bind.annotation.GetMapping;
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+
 public class RegistroController {
-    
-    @Autowired
-    private IUsuarioService usuarioService;
-    
+
+	private final IUsuarioService iusuarioService;
+
+    public RegistroController(IUsuarioService iusuarioService) {
+        this.iusuarioService = iusuarioService;
+    }
+
     @GetMapping("/registro")
-    public String registro() {
+    public String mostrarFormularioRegistro(Model model) {
+        model.addAttribute("usuario", new Usuario());
+        model.addAttribute("usuarios", this.iusuarioService);
         return "registro";
     }
-    
+
     @PostMapping("/registro")
-    public String doRegistro(Usuario usuario, Model model) {
-        Usuario existingUsuario = usuarioService.findByEmail(usuario.getEmail());
-        
-        if (existingUsuario != null) {
-            model.addAttribute("error", "El usuario ya existe");
+    public String procesarFormularioRegistro(@RequestParam("email") String email, @RequestParam("nombre") String nombre, @RequestParam("apellido") String apellido, @RequestParam("password") String password, Model model) {
+        Usuario usuarioExistente = iusuarioService.findByEmail(email);
+        if (usuarioExistente != null) {
+            model.addAttribute("error", "Ya existe un usuario con ese correo electrónico");
             return "registro";
         } else {
-            usuarioService.save(usuario);
-            model.addAttribute("exito", true);
-            return "registro";
+            Usuario nuevoUsuario = new Usuario();
+            nuevoUsuario.setEmail(email);
+            nuevoUsuario.setNombre(nombre);
+            nuevoUsuario.setApellido(apellido);
+            nuevoUsuario.setPassword(password);
+            iusuarioService.registrarUsuario(nuevoUsuario);
+            // Realizar acciones adicionales después del registro exitoso
+            return "redirect:/inicio";
         }
     }
 }
-
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.ui.Model;
-//import org.springframework.web.bind.annotation.GetMapping;
-
-//import com.proyecto.service.IUsuarioService;
-//public class RegistroController {
-//    
-//	@Autowired
-//	private IUsuarioService service;
-//	
-//	@GetMapping("/login")
-//	public String iniciarSesion() {
-//		return "login";
-//	}
-//	
-//	@GetMapping("/")
-//	public String verPaginaDeInicio(Model modelo) {
-//		modelo.addAttribute("usuarios", service.listarUsuarios());
-//		return "index";
-//	}
-//}
-    

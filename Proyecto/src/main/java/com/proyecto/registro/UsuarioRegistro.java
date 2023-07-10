@@ -52,12 +52,14 @@
 //    }
 //
 //
-////    public UsuarioRegistro(String nombre, String apellido, String email, String password) {
-////        this.nombre = nombre;
-////        this.apellido = apellido;
-////        this.email = email;
-////        this.password = password;
-////    }
+//   public UsuarioRegistro(String nombre, String apellido, String email, String password) {
+//		
+//		this.nombre = nombre;
+//		this.apellido = apellido;
+//		this.email = email;
+//		this.password = password;
+//	}
+//
 //
 //
 //    public UsuarioRegistro() {
