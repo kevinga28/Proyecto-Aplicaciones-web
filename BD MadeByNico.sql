@@ -17,14 +17,14 @@ Create table ProyectoWeb.usuarios(
 Create table ProyectoWeb.producto(
   id INT PRIMARY KEY AUTO_INCREMENT,
   nombre varchar(50),
-  descripcion varchar(255),
+  descripccion varchar(255),
   precio decimal (10,2),
   ruta_imagen text,
   tamanio decimal(10,2),
-  color varchar(50)
+  color varchar(90)
 );
 
-INSERT INTO ProyectoWeb.producto (nombre, descripcion, precio, ruta_imagen, tamanio, color)
+INSERT INTO ProyectoWeb.producto (nombre, descripccion, precio, ruta_imagen, tamanio, color)
 VALUES
     ('Gato', 'Diseño de gato hecho a mano', 4000, 'https://i.imgur.com/S7m9rBl.png', 13.0, 'Negro, blanco y rosado'),
     ('Nezuko', 'Diseño de nezuko kamado de demon slayer hecho a mano', 5500, 'https://i.imgur.com/PMuTTrC.png', 17.0, 'Negro, rosado, rojo y verde'),

@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-        <head th:insert="~{template.html :: head}"></head>
+    <head th:insert="~{template.html :: head}"></head>
 
     <body id="page-top">
         <!-- Navigation-->
-        <div th:insert="~{template.html :: nav}"></div> 
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" th:fragment = 'nav'>
+            <a class="navbar-brand js-scroll-trigger" href="/">
+                <span class="d-block d-lg-none">Made by Nico</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/logoNico.jpg" alt="..." /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+            </div>
+            <a href="/" class="btn btn-success" role="button" aria-pressed="true">Regresar</a>
+        </nav>
+
         <!-- El puede devolverse a la pagina principal apretando el logo de la tienda, esto en vez de poner un boton de "Regresar" -->
         <!-- Page Content-->
         <div class="container-fluid p-0">
             <!-- About-->
-            
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
                     <h1 class="mb-0">

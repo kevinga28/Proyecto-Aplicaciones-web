@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - codingnepalweb.com -->
-<html lang="en" dir="ltr">
+<!-- PENDIENTE -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head th:insert="~{template.html :: head}"></head>
-    <body>
+
+    <body id="page-top">
+        <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">
                 <span class="d-block d-lg-none">Made by Nico</span>
@@ -13,26 +15,21 @@
             </div>
             <a href="/" class="btn btn-success" role="button" aria-pressed="true">Regresar</a>
         </nav>
+        <!-- Page Content-->
         <div class="container-fluid p-0">
             <!-- About-->
             <div class="wrapper">
                 <form class="form-signin">       
-                    <h2 class="form-signin-heading">Registro</h2>
-                    <input type="text" class="form-control" name="name" placeholder="Nombre" required="" autofocus="" />
-                    <br/>
-                    <input type="text" class="form-control" name="surname" placeholder="Apellido" required="" autofocus="" />
-                    <br/>
+                    <h2 class="form-signin-heading">Inicio de Sesión</h2>
                     <input type="text" class="form-control" name="username" placeholder="Dirección de Email" required="" autofocus="" />
                     <br/>
-                    <input type="password" class="form-control" name="password" placeholder="Contraseña" required=""/> 
-                    <br/>
-                    <input type="password" class="form-control" name="confirmation" placeholder="Confirmar contraseña" required=""/>
+                    <input type="password" class="form-control" name="password" placeholder="Contraseña" required=""/>      
                     <label class="checkbox">
                         <br/>
                         <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Recuerdame </label>
-                    <a href="#" class="btn btn-success" role="button" aria-pressed="true">Registrate</a>
+                    <a href="#" class="btn btn-success" role="button" aria-pressed="true">Ingresar</a>
                     <br/>
-                    <a class="nav-link js-scroll-trigger" href="inicio_sesion.html">Ya tienes una cuenta? Inicia Sesion</a>
+                    <a class="nav-link js-scroll-trigger" href="registro.html">No tienes cuenta? Registrate</a>
                 </form>
             </div>
         </div>
@@ -40,3 +37,4 @@
     </body>
     <footer th:insert="~{template.html :: footer}"></footer>
 </html>
+
