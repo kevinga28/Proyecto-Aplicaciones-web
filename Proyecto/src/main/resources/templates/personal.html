@@ -18,9 +18,13 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Seguridad</a></li>
                 </ul>
             </div>
+<<<<<<< Updated upstream
             <a href="inicio_sesion.html" role="button" class="btn btn-light">Iniciar Sesión</a>
             <br/>
             <a href="inicio_sesion.html" role="button" class="btn btn-light">Registrarse</a>
+=======
+            <a href="/" class="btn btn-success" role="button" aria-pressed="true" th:text="#{botreg}"></a>
+>>>>>>> Stashed changes
         </nav>
         <!-- Page Content-->
         <div class="container-fluid p-0">
@@ -30,6 +34,7 @@
                     <h2 class="mb-5">Personal</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
+<<<<<<< Updated upstream
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                                 when an unknown printer took a galley of type and scrambled it to make a type 
@@ -38,6 +43,45 @@
                                 the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
                                 and more recently with desktop publishing software like Aldus PageMaker including 
                                 versions of Lorem Ipsum.</p>
+=======
+                            <div class="card" style="border-radius: 15px;">
+                                <div class="card-body p-4">
+                                    <div class="d-flex text-black">
+                                        <div class="flex-shrink-0">
+                                            <img src="assets/img/logoNico.jpg"
+                                                 alt="Generic placeholder image" class="img-fluid"
+                                                 style="width: 180px; border-radius: 10px;">
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h5 class="mb-1">Usuario Prueba</h5>
+                                            <p class="mb-2 pb-1" style="color: #2b2a2a;">test@gmail.com</p>
+                                            <div class="d-flex justify-content-start rounded-3 p-2 mb-2"
+                                                 style="background-color: #efefef;">
+                                                <div>
+                                                    <p class="small text-muted mb-1" th:text="#{personal.rol}"></p>
+                                                    <p class="mb-0">Cliente</p>
+                                                </div>
+                                                <div class="px-3">
+                                                    <p class="small text-muted mb-1" th:text="#{personal.seguridad}"></p>
+                                                    <p class="mb-0">Autenticada</p>
+                                                </div>
+                                                <div>
+                                                    <p class="small text-muted mb-1" th:text="#{personal.metodopago}"></p>
+                                                    <p class="mb-0">Credito</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex pt-1">
+                                                <a href="perfil.html" class="btn btn-success" role="button" aria-pressed="true" th:text="#{perfil.mod}"></a>
+                                                <br/>
+                                                <a href="seguridad.html" class="btn btn-success" role="button" aria-pressed="true" th:text="#{personal.seguridad}"></a>
+                                                <br/>
+                                                <a href="pago.html" class="btn btn-success" role="button" aria-pressed="true" th:text="#{personal.metodopago}"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+>>>>>>> Stashed changes
                         </div>
                     </div>
                 </div>

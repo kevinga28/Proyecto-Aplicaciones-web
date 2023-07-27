@@ -4,13 +4,28 @@
 
     <body id="page-top">
         <!-- Navigation-->
+<<<<<<< Updated upstream
         <nav th:insert="~{template.html :: nav}"></nav>
         <!-- Page Content-->
+=======
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" th:fragment = 'nav'>
+            <a class="navbar-brand js-scroll-trigger" href="/">
+                <span class="d-block d-lg-none">Made by Nico</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/logoNico.jpg" alt="..." /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+            </div>
+            <a href="/product" class="btn btn-success" role="button" aria-pressed="true" th:text="#{botreg}"></a>
+        </nav>
+
+>>>>>>> Stashed changes
         <div class="container-fluid p-0">
             <a href="Product.html" class="btn btn-success" role="button" aria-pressed="true">Regresar</a>
             <!-- About-->
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
+<<<<<<< Updated upstream
                     <h1 class="mb-0">
                         Made by
                         <span class="text-primary">Nico</span>
@@ -61,3 +76,43 @@
             <!-- Footer -->
     <footer th:insert="~{template.html :: footer}"></footer>
 </html>
+=======
+                    <div class="container mt-5 mb-5">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-10">
+                                <div class="card">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="images p-3">
+                                                <div class="text-center p-4"> <img id="main-image" src="assets/img/logoNico.jpg" width="250" /> </div>
+                                                            </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <div class="product p-4">
+                                                                    <div class="d-flex justify-content-between align-items-center">
+                                                                    </div>
+                                                                        <h5 class="text-uppercase">Pochita</h5>
+                                                                        <div class="price d-flex flex-row align-items-center"> <span class="act-price">$3500</span>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="about">Diseño de pochita del anime Chainsaw Man</p>
+                                                                    <div class="sizes mt-5">
+                                                                        <h6 class="text-uppercase" th:text="#{caract.tamanio}">Size</h6> <label class="radio"> <input type="radio" name="size" value="S" checked> <span>S</span> </label> <label class="radio"> <input type="radio" name="size" value="M"> <span>M</span> </label> <label class="radio"> <input type="radio" name="size" value="L"> <span>L</span> </label> <label class="radio"> <input type="radio" name="size" value="XL"> <span>XL</span> </label> <label class="radio"> <input type="radio" name="size" value="XXL"> <span>XXL</span> </label>
+                                                                    </div>
+                                                                    <div class="cart mt-4 align-items-center"> <button class="btn btn-danger text-uppercase mr-2 px-4" th:text="#{caract.button}">Añadir al carrito</button> <i class="fa fa-heart text-muted"></i> <i class="fa fa-share-alt text-muted"></i> </div>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                            </section>
+                                                            <hr class="m-0" />
+                                                            </div>
+                                                            <div th:insert="~{template.html :: scripts}"></div>  
+                                                            </body>
+                                                            <footer th:insert="~{template.html :: footer}"></footer>
+                                                            </html>
+>>>>>>> Stashed changes

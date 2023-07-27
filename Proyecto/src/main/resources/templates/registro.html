@@ -21,10 +21,15 @@
                     <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#awards">Perfil</a></li>
                 </ul>
             </div>
+<<<<<<< Updated upstream
+=======
+            <a href="/" class="btn btn-success" role="button" aria-pressed="true" th:text="#{botreg}"></a>
+>>>>>>> Stashed changes
         </nav>
         <!-- Page Content-->
         <div class="container-fluid p-0">
             <!-- About-->
+<<<<<<< Updated upstream
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
                     <h1 class="mb-0">
@@ -154,6 +159,28 @@
                     </div>
                 </div>
             </section>
+=======
+            <div class="wrapper">
+                <form class="form-signin">       
+                    <h2 class="form-signin-heading" th:text="#{registro}"></h2>
+                    <input type="text" class="form-control" name="name" placeholder="Nombre" required="" autofocus="" />
+                    <br/>
+                    <input type="text" class="form-control" name="surname" placeholder="Apellido" required="" autofocus="" />
+                    <br/>
+                    <input type="text" class="form-control" name="username" placeholder="Dirección de Email" required="" autofocus="" />
+                    <br/>
+                    <input type="password" class="form-control" name="password" placeholder="Contraseña" required=""/> 
+                    <br/>
+                    <input type="password" class="form-control" name="confirmation" placeholder="Confirmar contraseña" required=""/>
+                    <label class="checkbox">
+                        <br/>
+                        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe" th:text="#{inises.record}"></label>
+                    <a href="#" class="btn btn-success" role="button" aria-pressed="true" th:text="#{registro.bot}"></a>
+                    <br/>
+                    <a class="nav-link js-scroll-trigger" href="inicio_sesion.html" th:text="#{registro.inises}"></a>
+                </form>
+            </div>
+>>>>>>> Stashed changes
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>

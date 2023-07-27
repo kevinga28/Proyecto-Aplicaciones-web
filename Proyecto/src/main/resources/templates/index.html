@@ -18,23 +18,17 @@
                         Proyectos de crochet hechos a mano · Costa Rica · (+506) 8888-8888 ·
                         <a href="mailto:madebynico@email.com">madebynico@email.com</a>
                     </div>
-                    <p class="lead mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                        when an unknown printer took a galley of type and scrambled it to make a type 
-                        specimen book. It has survived not only five centuries, but also the leap into 
-                        electronic typesetting, remaining essentially unchanged. It was popularised in 
-                        the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                        and more recently with desktop publishing software like Aldus PageMaker including 
-                        versions of Lorem Ipsum.</p>
+                    <p class="lead mb-5" th:text="#{descinf}"></p>
                 </div>
             </section>
             <hr class="m-0" />
             <!-- Experience-->
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Noticias</h2>
+                    <h2 class="mb-5" th:text="#{noticias}"></h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
+<<<<<<< Updated upstream
                             <h3 class="mb-0">Noticias sobre la tienda y productos</h3>
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
@@ -45,8 +39,13 @@
                                 and more recently with desktop publishing software like Aldus PageMaker including 
                                 versions of Lorem Ipsum.</p>
                             <a href="productos.html" class="btn btn-success" role="button" aria-pressed="true">Ver noticias</a>
+=======
+                            <h3 class="mb-0" th:text="#{infonot}"></h3>
+                            <p th:text="#{descnot}"></p>
+                            <a href="/" class="btn btn-success" role="button" aria-pressed="true" th:text="#{botnot}"></a>
+>>>>>>> Stashed changes
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">Publicado el 3/16/2023</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary" th:text="#{fechnot}"></span></div>
                     </div>
                 </div>
             </section>
@@ -54,9 +53,10 @@
             <!-- Education-->
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Productos</h2>
+                    <h2 class="mb-5" th:text="#{productos}"></h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
+<<<<<<< Updated upstream
                             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
                                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
                                 when an unknown printer took a galley of type and scrambled it to make a type 
@@ -66,8 +66,14 @@
                                 and more recently with desktop publishing software like Aldus PageMaker including 
                                 versions of Lorem Ipsum.</p>
                             <a href="productos.html" class="btn btn-success" role="button" aria-pressed="true">Ver productos</a>
+=======
+                            <h3 class="mb-0" th:text="#{infoprod}"></h3>
+                            <p th:text="#{descprod}"></p>
+                            <!-- Los manda directamente a la ventana de productos -->
+                            <a href="/product" class="btn btn-success" role="button" aria-pressed="true" th:text="#{botprod}"></a>
+>>>>>>> Stashed changes
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">Publicado el 3/8/2023</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary" th:text="#{fechprod}"></span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between">
                     </div>
@@ -77,20 +83,17 @@
             <!-- Interests-->
             <section class="resume-section" id="interests">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Chat en vivo</h2>
+                    <h2 class="mb-5" th:text="#{cev}"></h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                when an unknown printer took a galley of type and scrambled it to make a type 
-                                specimen book. It has survived not only five centuries, but also the leap into 
-                                electronic typesetting, remaining essentially unchanged. It was popularised in 
-                                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                                and more recently with desktop publishing software like Aldus PageMaker including 
-                                versions of Lorem Ipsum.</p>
-                            <a href="chat.html" class="btn btn-success" role="button" aria-pressed="true">Empezar chat</a>
+                            <p th:text="#{descchat}"></p>
+                            <a href="/chat" class="btn btn-success" role="button" aria-pressed="true" th:text="#{botchat}"></a>
                         </div>
+<<<<<<< Updated upstream
                         <div class="flex-shrink-0"><span class="text-primary">August 2006 - May 2010</span></div>
+=======
+                        <div class="flex-shrink-0"><span class="text-primary" th:text="#{fechchat}"></span></div>
+>>>>>>> Stashed changes
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between">
                     </div>
@@ -100,20 +103,17 @@
             <!-- Awards-->
             <section class="resume-section" id="awards">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Perfil</h2>
+                    <h2 class="mb-5" th:text="#{perfil}"></h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                when an unknown printer took a galley of type and scrambled it to make a type 
-                                specimen book. It has survived not only five centuries, but also the leap into 
-                                electronic typesetting, remaining essentially unchanged. It was popularised in 
-                                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                                and more recently with desktop publishing software like Aldus PageMaker including 
-                                versions of Lorem Ipsum.</p>
-                            <a href="personal.html" class="btn btn-success" role="button" aria-pressed="true">Opciones de perfil</a>
+                            <p th:text="#{descperf}"></p>
+                            <a href="personal.html" class="btn btn-success" role="button" aria-pressed="true" th:text="#{botperf}"></a>
                         </div>
+<<<<<<< Updated upstream
                         <div class="flex-shrink-0"><span class="text-primary">August 2006 - May 2010</span></div>
+=======
+                        <div class="flex-shrink-0"><span class="text-primary" th:text="#{fechperf}"></span></div>
+>>>>>>> Stashed changes
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between">
                     </div>
