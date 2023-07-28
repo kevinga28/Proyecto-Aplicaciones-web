@@ -34,7 +34,7 @@ $(document).on("click", "#saveEntity", function () {
             location.reload();
         }, data: JSON.stringify(defaultEntity)
     });
-})
+});
 
 //Delete
 $(document).on("click", ".btnDeleteEntity", function () {
@@ -46,4 +46,4 @@ $(document).on("click", ".btnDeleteEntity", function () {
         }, //here we are serialization the object
         data: JSON.stringify(currentEntity)
     });
-})
+});

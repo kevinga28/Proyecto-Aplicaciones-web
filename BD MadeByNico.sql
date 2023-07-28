@@ -2,17 +2,25 @@ drop SCHEMA if exists ProyectoWeb;
 CREATE SCHEMA ProyectoWeb;
 
 CREATE USER 'usuario_Admin'@'%' IDENTIFIED BY 'MadeByNico';
-drop user 'usuario_Admin'@'%';
+
 GRANT ALL PRIVILEGES ON ProyectoWeb.* to 'usuario_Admin'@'%';
 flush privileges;
 
-Create table ProyectoWeb.usuarios(
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  nombre VARCHAR(255),
-  apellido VARCHAR(255),
-  email VARCHAR(255),
-  password VARCHAR(255)
-);
+CREATE TABLE ProyectoWeb.usuario (
+  id_usuario INT NOT NULL AUTO_INCREMENT,
+  username varchar(20) NOT NULL,
+  password varchar(200) NOT NULL,
+  nombre VARCHAR(20) NOT NULL,
+  apellidos VARCHAR(30) NOT NULL,
+  correo VARCHAR(25) NULL,
+  activo boolean,
+  PRIMARY KEY (`id_usuario`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+
+
+
 Create table ProyectoWeb.producto(
   id INT PRIMARY KEY AUTO_INCREMENT,
   nombre varchar(50),
@@ -22,6 +30,17 @@ Create table ProyectoWeb.producto(
   tamanio decimal(10,2),
   color varchar(90)
 );
+
+create table ProyectoWeb.rol (
+  id_rol INT NOT NULL AUTO_INCREMENT,
+  nombre varchar(20),
+  id_usuario int,
+  PRIMARY KEY (id_rol),
+  foreign key fk_rol_usuario (id_usuario) references usuario(id_usuario)
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
 
 INSERT INTO ProyectoWeb.producto (nombre, descripcion, precio, ruta_imagen, tamanio, color)
 VALUES
