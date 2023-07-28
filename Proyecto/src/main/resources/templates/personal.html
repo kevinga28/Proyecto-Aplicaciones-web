@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!-- PENDIENTE -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"​​xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:insert="~{template.html :: head}"></head>
+
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Made by Nico</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/logoNico.jpg" alt="..." /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Personal</a></li>
+                </ul>
+            </div>
+            <a href="index.html" class="btn btn-success" role="button" aria-pressed="true">Regresar</a>
+        </nav>
+        <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Personal</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <div class="card" style="border-radius: 15px;">
+                                <div class="card-body p-4">
+                                    <div class="d-flex text-black">
+                                        <div class="flex-shrink-0">
+                                            <img src="assets/img/logoNico.jpg"
+                                                 alt="Generic placeholder image" class="img-fluid"
+                                                 style="width: 180px; border-radius: 10px;">
+                                        </div>
+                                        <div class="flex-grow-1 ms-3">
+                                            <h5 class="mb-1">Usuario Prueba</h5>
+                                            <p class="mb-2 pb-1" style="color: #2b2a2a;">test@gmail.com</p>
+                                            <div class="d-flex justify-content-start rounded-3 p-2 mb-2"
+                                                 style="background-color: #efefef;">
+                                                <div>
+                                                    <p class="small text-muted mb-1">Rol</p>
+                                                    <p class="mb-0">Cliente</p>
+                                                </div>
+                                                <div class="px-3">
+                                                    <p class="small text-muted mb-1">Seguridad</p>
+                                                    <p class="mb-0">Autenticada</p>
+                                                </div>
+                                                <div>
+                                                    <p class="small text-muted mb-1">Metodo de pago</p>
+                                                    <p class="mb-0">Credito</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex pt-1">
+                                                <a href="perfil.html" class="btn btn-success" role="button" aria-pressed="true">Modificar</a>
+                                                <br/>
+                                                <a href="seguridad.html" class="btn btn-success" role="button" aria-pressed="true">Seguridad</a>
+                                                <br/>
+                                                <a href="pago.html" class="btn btn-success" role="button" aria-pressed="true">Pago</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+        </div>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+
+    <!-- Footer -->
+    <footer th:insert="~{template.html :: footer}"></footer>
+</html>

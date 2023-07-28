@@ -1,34 +1,43 @@
-<html th:attr="lang=${lang}" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head th:fragment="head">
-    <meta charset="UTF-8">
-    <title>Registro de usuarios</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Registro de usuarios</h1>
-        <form action="/registro" method="post">
-            <div class="form-group">
-                <label for="nombre">Nombre:</label>
-                <input type="text" class="form-control" id="nombre" name="nombre" required>
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"​​xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+
+    <head th:insert="~{template.html :: head}"></head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Made by Nico</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/logoNico.jpg" alt="..." /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
             </div>
-            <div class="form-group">
-                <label for="apellido">Apellido:</label>
-                <input type="text" class="form-control" id="apellido" name="apellido" required>
+            <a href="/" class="btn btn-success" role="button" aria-pressed="true">Regresar</a>
+        </nav>
+        <div class="container-fluid p-0">
+            <!-- About-->
+            <div class="wrapper">
+                <form class="form-signin">       
+                    <h2 class="form-signin-heading">Registro</h2>
+                    <input type="text" class="form-control" name="name" placeholder="Nombre" required="" autofocus="" />
+                    <br/>
+                    <input type="text" class="form-control" name="surname" placeholder="Apellido" required="" autofocus="" />
+                    <br/>
+                    <input type="text" class="form-control" name="username" placeholder="Dirección de Email" required="" autofocus="" />
+                    <br/>
+                    <input type="password" class="form-control" name="password" placeholder="Contraseña" required=""/> 
+                    <br/>
+                    <input type="password" class="form-control" name="confirmation" placeholder="Confirmar contraseña" required=""/>
+                    <label class="checkbox">
+                        <br/>
+                        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Recuerdame </label>
+                    <a href="#" class="btn btn-success" role="button" aria-pressed="true">Registrate</a>
+                    <br/>
+                    <a class="nav-link js-scroll-trigger" href="login.html">Ya tienes una cuenta? Inicia Sesion</a>
+                </form>
             </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Registrar</button>
-        </form>
-        <p th:if="${exito}" class="text-success">Registro exitoso</p>
-        <p th:text="${error}" class="text-danger"></p>
-        <p>Si ya tienes una cuenta, <a href="/login" >inicia sesión aquí</a>.</p>
-    </div>
-</body>
+        </div>
+        <div th:insert="~{template.html :: scripts}"></div>  
+    </body>
+    <footer th:insert="~{template.html :: footer}"></footer>
 </html>

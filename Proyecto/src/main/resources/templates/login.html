@@ -1,85 +1,56 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8">
-<title>Inicio de sesión</title>
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
+<html th:attr="lang=${lang}" 
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      ​​xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:insert="~{template.html :: head}"></head>
 
-<!-- Optional theme -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-	crossorigin="anonymous">
-</head>
-<body>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Made by Nico</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/logoNico.jpg" alt="..." /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+            </div>
+            <a href="/" class="btn btn-success" role="button" aria-pressed="true">Regresar</a>
+        </nav>
+        <!-- Page Content-->
+         <div class="container my-5">
+            <div class="wrapper">
+                <div class="col-md-3"></div>
+                        <div class="form-signin-heading"><h2>Inicio de Sesión</h2></div>
+                        
+                            <form method="POST" th:action="@{/login}">
+                                <div class="form-group row my-3">
+                                    <label class="col-md-5 my-auto" for="username"><i class="fas fa-user-lock"></i>Username:</label>
+                                    <div class="col-md-7 my-auto">
+                                        <input class="form-control" id="username" name="username" type="text"/></div>
+                                </div>
+                                <div class="form-group row my-3">
+                                    <label class="col-md-5 my-auto" for="password"><i class="fas fa-key"></i>Password</label>
+                                    <div class="col-md-7 my-auto"><input class="form-control" id="password" name="password" type="password"/></div>
+                                </div>
+                                <div>
+                                    <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Recuerdame </label>
+                                </div>
+                                <div class="card-footer col text-center">
+                                    <button class="btn btn-success" type="submit">
+                                        <span class="btn"><i class="fas fa-sign-in-alt"></i>
+                                            Iniciar sesion</span></button>
+                                </div>
+                                 <a class="nav-link js-scroll-trigger" href="registro.html">No tienes cuenta? Registrate</a>
+                            </form>
+                    <div th:if="${param.error != null}">
+                        <h3>Usuario incorrecto o usuario no encontrado</h3>
+                    </div>
+           
+        </div>
+          
+        <div th:insert="~{template.html :: scripts}"></div>  
+    </body>
+    <footer th:insert="~{template.html :: footer}"></footer>
+</html>
 
-
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#" th:href="@{/}">Registro y
-					inicio de sesión</a>
-			</div>
-		</div>
-	</nav>
-
-	<br>
-	<br>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<h1>Inicio de sesión</h1>
-				<form th:action="/login" method="post">
-
-					<div th:if=${param.error}>
-						<div class="alert alert-danger">Usuario o contraseña
-							inválidos</div>
-					</div>
-
-					<div th:if=${param.logout}>
-						<div class="alert alert-info">Ha cerrado sesión exitosamente
-						</div>
-					</div>
-
-
-					<div class="form-group">
-						<label  for="username">Nombre de
-							usuario : </label> <input id="username"  name="username" type="text" class="form-control"
-							required autofocus="autofocus" placeholder="Digite su email ID">
-					</div>
-
-					<div class="form-group">
-						<label  for="password">Password : </label> <input
-							id="password" type="password"  name="password" class="form-control" required
-							autofocus="autofocus" placeholder="Digite su password">
-					</div>
-
-					<div class="form-group">
-						<div class="row">
-							<div class="col-md-6 col-md-offset-3">
-								<input type="submit" class="form-control btn btn-primary" name="login-submit" id="login-submit"
-									value="Iniciar sesión" />
-							</div>
-						</div>
-					</div>
-				</form>
-				<div class="form-group">
-					<span>Si eres nuevo usuario <a th:href="/registro}">regístrate
-							aqui</a></span>
-				</div>
-
-			</div>
-		</div>
-	</div>
