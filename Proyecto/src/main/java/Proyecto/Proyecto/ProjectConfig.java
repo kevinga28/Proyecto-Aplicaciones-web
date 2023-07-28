@@ -19,7 +19,7 @@ public class ProjectConfig  implements WebMvcConfigurer {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("index");
+        registry.addViewController("/").setViewName("login");
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/login").setViewName("login");
 

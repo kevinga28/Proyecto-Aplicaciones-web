@@ -36,12 +36,12 @@
                                 <div>
                                     <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Recuerdame </label>
                                 </div>
-                                <div class="card-footer col text-center">
+                                <div  th:href="#{/index}"class="card-footer col text-center">
                                     <button class="btn btn-success" type="submit">
                                         <span class="btn"><i class="fas fa-sign-in-alt"></i>
                                             Iniciar sesion</span></button>
                                 </div>
-                                 <a class="nav-link js-scroll-trigger" href="registro.html">No tienes cuenta? Registrate</a>
+                                 <a  class="nav-link js-scroll-trigger" href="#registro.html">No tienes cuenta? Registrate</a>
                             </form>
                     <div th:if="${param.error != null}">
                         <h3>Usuario incorrecto o usuario no encontrado</h3>
