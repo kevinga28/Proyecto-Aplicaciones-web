@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-        <head th:insert="~{template.html :: head}"></head>
+    <head th:insert="~{template.html :: head}"></head>
 
     <body id="page-top">
         <!-- Navigation-->
-<<<<<<< Updated upstream
-        <div th:insert="~{template.html :: nav}"></div> 
-=======
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" th:fragment = 'nav'>
             <a class="navbar-brand js-scroll-trigger" href="/">
                 <span class="d-block d-lg-none">Made by Nico</span>
@@ -17,11 +14,10 @@
             </div>
             <a href="/" class="btn btn-success" role="button" aria-pressed="true" th:text="#{botreg}"></a>
         </nav>
->>>>>>> Stashed changes
 
+        <!-- El puede devolverse a la pagina principal apretando el logo de la tienda, esto en vez de poner un boton de "Regresar" -->
         <!-- Page Content-->
         <div class="container-fluid p-0">
-            <a href="inicio.html" class="btn btn-success" role="button" aria-pressed="true">Regresar</a>
             <!-- About-->
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
