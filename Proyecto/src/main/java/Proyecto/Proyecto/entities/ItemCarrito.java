@@ -18,9 +18,9 @@ public class ItemCarrito {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-//    @ManyToOne
-//    @JoinColumn(name = "id_usuario")
-//    private Usuario usuario;
+    @ManyToOne
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
     
     @ManyToOne
     @JoinColumn(name = "id_producto")
@@ -36,13 +36,13 @@ public class ItemCarrito {
         this.id = id;
     }
 
-//    public Usuario getUsuario() {
-//        return usuario;
-//    }
-//
-//    public void setUsuario(Usuario usuario) {
-//        this.usuario = usuario;
-//    }
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
     public Product getProducto() {
         return producto;
