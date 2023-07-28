@@ -14,23 +14,14 @@
             <a href="/" class="btn btn-success" role="button" aria-pressed="true">Regresar</a>
         </nav>
 
-        <!-- El puede devolverse a la pagina principal apretando el logo de la tienda, esto en vez de poner un boton de "Regresar" -->
-
         <div class="container-fluid p-0">
             <!-- About-->
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        Made by
-                        <span class="text-primary">Nico</span>
-                    </h1>
-                </div>
-            </section>
-            <section class="container mw-100">
-    <div class="container button-container" >
+                   <div class="container button-container" >
         <div class="row">
             <div class="col-sm d-flex justify-content-center text-center" >
-                <a href="/Adproduct">
+                <a href="/AdminProductos">
                     <div class="backgrounds justify-content-center">
                         <h2>Productos</h2>
                         <img th:src="@{/assets/img/icons8-product-management-96.png}"
@@ -48,10 +39,15 @@
                 </a>
             </div>
         </div>
-    </div>
+    </div> 
+                </div>
+            </section>
+            <section class="container mw-100">
 </section>
+            
             <hr class="m-0" />
-        </div>
+    </div>
+   
         <div th:insert="~{template.html :: scripts}"></div>  
     </body>
     <footer th:insert="~{template.html :: footer}"></footer>
