@@ -13,7 +13,6 @@ Create table ProyectoWeb.usuarios(
   email VARCHAR(255),
   password VARCHAR(255)
 );
-
 Create table ProyectoWeb.producto(
   id INT PRIMARY KEY AUTO_INCREMENT,
   nombre varchar(50),
@@ -36,3 +35,10 @@ VALUES
     ('Vaca colorida', 'Diseño de una vaca con colores inusuales', 6000, 'https://i.imgur.com/5zXjtSh.png', 25.7, 'Blanco, morado claro y oscuro'),
     ('Panda', 'Diseño de un panda hecho a mano', '5800', 'https://i.imgur.com/jW8DtoH.png', 19.2, 'Blanco y negro'),
     ('Stich', 'Diseño del personaje Stich de "Lilo y Stich"', '5000', 'https://i.imgur.com/6L1nEVd.png', 16.5, 'Azul claro y oscuro, negro y rosado');
+    
+    
+INSERT INTO ProyectoWeb.usuarios (nombre, apellido, email, password)
+VALUES ('John', 'Doe', 'JhonDemon@Gmail.com', '12345'),
+('Jane', 'Smith', 'jane.smith@example.com', 'qwerty'),
+('Michael', 'Johnson', 'michael.johnson@example.com', 'abc123');
+

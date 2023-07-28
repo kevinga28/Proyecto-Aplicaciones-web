@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:insert="~{template.html :: head}"></head>
+
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" th:fragment = 'nav'>
+            <a class="navbar-brand js-scroll-trigger" href="/">
+                <span class="d-block d-lg-none">Made by Nico</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/logoNico.jpg" alt="..." /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+            </div>
+            <a href="/" class="btn btn-success" role="button" aria-pressed="true">Regresar</a>
+        </nav>
+
+        <!-- El puede devolverse a la pagina principal apretando el logo de la tienda, esto en vez de poner un boton de "Regresar" -->
+
+        <div class="container-fluid p-0">
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                        Made by
+                        <span class="text-primary">Nico</span>
+                    </h1>
+
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Experience-->
+            <section class="product-section">
+                <section class="container py-5">
+    <div class="row text-center pt-3">
+        <div class="col-lg-6 m-auto">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellidos</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Contraseña</th>
+                </tr>
+                </thead>
+            <tbody>
+               <tr th:each="cliente : ${clientes}">
+                    <td><span th:text="${cliente.id}"></span></td>
+                    <td><span th:text="${cliente.nombre}"></span></td>
+                    <td><span th:text="${cliente.apellido}"></span></td>
+                    <td><span th:text="${cliente.email}"> </span></td>
+                    <td><span th:text="${cliente.password}"> </span></td>
+               <td>
+
+                        <button class="btn btn-primary open-modal" data-bs-target="#ClienteModal" data-bs-toggle="modal"
+                                th:attr="idCliente=${cliente.id}" type="button" style="background-color: #198754; border-color: #198754; padding: 10px 30px; color: #fff " >
+                            <b>Editar</b>
+                        </button>
+               </td>
+                    <td>
+                        <button class="btn btn-danger open-modal btnDeleteEntity" th:attr="idCliente=${cliente.id}"
+                                type="button"style="background-color: firebrick; border-color: firebrick; padding: 10px 30px; color: #fff " >
+                            <b>Eliminar</b>
+                        </button>
+               </td> 
+               </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="ClienteModal" role="dialog"
+         tabindex="-1">        
+    <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cliente</h5>
+                    <button aria-label="Close" class="close" data-bs-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" id="formCliente" method="post">
+                        <div class="form-group d-none">
+                            <label for="id">Id</label>
+                            <input class="form-control" id="id" placeholder="id"
+                                   type="number">
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Nombre</label>
+                            <input class="form-control" id="nombre"
+                                   type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Apellidos</label>
+                            <input class="form-control" id="apellido"
+                                   type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input class="form-control" id="email" 
+                                   type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input class="form-control" id="password"   
+                                   type="text">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" type="button" style=" background-color: #b02a37; border-color:#b02a37 "><b>Cerrar</b></button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal" id="saveEntity" type="button" style="background-color: #c7dbd2; border-color:#c7dbd2; color: #000 "><b>Guardar</b>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div th:insert="~{template.html :: scripts}"></div> 
+        <script th:inline="javascript">
+    /*<![CDATA[*/
+    clientes = /*[[${clientes}]]*/ 'default';
+    ClienteDefault = /*[[${ClienteDefault}]]*/ 'default';
+    /*]]>*/
+</script>
+    
+<script src="../js/cliente.js"></script>
+<script src="../js/baseCRUD.js"></script>    
+</body>
+    <footer th:insert="~{template.html :: footer}"></footer>
+
+</html>
+
+
