@@ -12,7 +12,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
             </div>
-            <a href="/" class="btn btn-success" role="button" aria-pressed="true" th:text="#{botreg}"></a>
+            <a href="/" class="btn btn-success" role="button" aria-pressed="true">[[#{botreg}]]</a>
         </nav>
 
         <!-- El puede devolverse a la pagina principal apretando el logo de la tienda, esto en vez de poner un boton de "Regresar" -->
@@ -26,7 +26,7 @@
                         <span class="text-primary">Nico</span>
                     </h1>
                     <nav class="navbar navbar-light bg-light justify-content-between">
-                        <a class="navbar-brand" th:text="#{Product.search}"></a>
+                        <a class="navbar-brand">[[#{Product.search}]]</a>
                         <form class="form-inline">
                             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
                         </form>
