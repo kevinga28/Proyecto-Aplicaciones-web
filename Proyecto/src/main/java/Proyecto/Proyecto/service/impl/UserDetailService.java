@@ -4,6 +4,7 @@ import Proyecto.Proyecto.service.IUserDetailService;
 import Proyecto.Proyecto.db.IUserRepository;
 import Proyecto.Proyecto.entities.Usuario;
 import Proyecto.Proyecto.entities.Rol;
+//import Proyecto.Proyecto.entities.dto.UsuarioRegistro;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,8 @@ import org.springframework.transaction.annotation.Transactional;
 public class UserDetailService implements IUserDetailService, UserDetailsService{
     @Autowired
     private IUserRepository userRepository;
-
+    @Autowired
+    private HttpSession session;
     
     @Override
     @Transactional(readOnly = true)
@@ -36,7 +38,16 @@ public class UserDetailService implements IUserDetailService, UserDetailsService
         for (Rol rol : usuario.getRoles()) {  //Se sacan los roles
             roles.add(new SimpleGrantedAuthority(rol.getNombre()));
         }
-        //Se devuelve User (clase UserDetails)
+        //Se devuelve User (clase UserDetails) 
         return new User(usuario.getUsername(),usuario.getPassword(),roles);
     }
 }
+
+//    @Override
+//	public Usuario guardar(UsuarioRegistro registroDTO) {
+//		Usuario usuario = new Usuario(registroDTO.getUsername(), registroDTO.getPassword(),
+//                        registroDTO.getNombre(),
+//                        registroDTO.getApellidos(),registroDTO.getCorreo(),Arrays.asList(new Rol("ROLE_USER")));
+//                return userRepository.save(usuario);
+//        }
+

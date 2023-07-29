@@ -54,4 +54,8 @@ public class Rol  implements Serializable{
     public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
+//    public Rol(String nombre) {
+//		this.nombre = nombre;
+//	}
+
 }

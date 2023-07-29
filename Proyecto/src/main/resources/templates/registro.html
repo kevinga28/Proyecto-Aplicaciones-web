@@ -17,13 +17,15 @@
         <div class="container-fluid p-0">
             <!-- About-->
             <div class="wrapper">
-                <form class="form-signin">       
+                <form class="form-signin"th:action="@{/registro}"th:object="${usuario}">       
                     <h2 class="form-signin-heading">Registro</h2>
-                    <input type="text" class="form-control" name="name" placeholder="Nombre" required="" autofocus="" />
+                    <input type="text" class="form-control" name="nombre" placeholder="Nombre" required="" autofocus="" />
                     <br/>
-                    <input type="text" class="form-control" name="surname" placeholder="Apellido" required="" autofocus="" />
+                    <input type="text" class="form-control" name="apellidos" placeholder="Apellido" required="" autofocus="" />
                     <br/>
-                    <input type="text" class="form-control" name="username" placeholder="Dirección de Email" required="" autofocus="" />
+                    <input type="text" class="form-control" name="correo" placeholder="Dirección de Email" required="" autofocus="" />
+                    <br/>
+                    <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" />
                     <br/>
                     <input type="password" class="form-control" name="password" placeholder="Contraseña" required=""/> 
                     <br/>
@@ -33,8 +35,11 @@
                         <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Recuerdame </label>
                     <a href="#" class="btn btn-success" role="button" aria-pressed="true">Registrate</a>
                     <br/>
-                    <a class="nav-link js-scroll-trigger" href="login.html">Ya tienes una cuenta? Inicia Sesion</a>
+                    <a class="nav-link js-scroll-trigger" href="@{/login}">Ya tienes una cuenta? Inicia Sesion</a>
                 </form>
+                	<div th:if=${param.exito}>
+					<div class="alert alert-info">Se ha registrado exitosamente a
+						la aplicación</div>
             </div>
         </div>
         <div th:insert="~{template.html :: scripts}"></div>  

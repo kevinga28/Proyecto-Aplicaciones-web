@@ -7,3 +7,4 @@ public interface IUserRepository extends JpaRepository<Usuario, Long> {
     
     Usuario findByUsername(String Username);
 }
+
