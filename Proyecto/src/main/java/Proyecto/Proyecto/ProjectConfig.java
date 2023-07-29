@@ -62,27 +62,26 @@ public class ProjectConfig implements WebMvcConfigurer {
 
     }
 
-
+//Preguntar sobre porque al devolverse o hacer cualquier accion pide iniciar sesion
        @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests((request) -> request 
+         http
+                .authorizeHttpRequests((request) -> request
                 .requestMatchers("/",
                                  "/index", 
                                  "/errores/**", 
                                  "/js/**", 
                                  "/css/**", 
-                                 "/icons/**", 
-                                 "/img/**", 
-                                 "/webfonts/**",
-                                  "/assets/**")
+                                 "/assets/**")
                 .permitAll()
-                .requestMatchers("/product/**"
-                                 )
+                .requestMatchers("/product/**", "/caracteristicas/**", 
+                                 "/chat/**","/pago/**",
+                                 "/perfil/**","/personal/**",
+                                 "/registro/**","/seguridad/**")
                 .hasRole("ADMIN"))
                 .formLogin((form) -> form.loginPage("/login")
                 .permitAll()
-                .defaultSuccessUrl("/index", true))
+                .defaultSuccessUrl("/", true))
                 .logout(LogoutConfigurer::permitAll)
                 .csrf().disable().cors();//this line is important to allow ajax request from the js
         return http.build();

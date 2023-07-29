@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"​​xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" ​​xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:insert="~{template.html :: head}"></head>
 
     <body id="page-top">
@@ -12,7 +12,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
             </div>
-            <a href="/" class="btn btn-success" role="button" aria-pressed="true">Regresar</a>
+            <a href="/" class="btn btn-success" role="button" aria-pressed="true">[[#{botreg}]]</a>
         </nav>
 
         <!-- El puede devolverse a la pagina principal apretando el logo de la tienda, esto en vez de poner un boton de "Regresar" -->
@@ -26,11 +26,12 @@
                         <span class="text-primary">Nico</span>
                     </h1>
                     <nav class="navbar navbar-light bg-light justify-content-between">
-                        <a class="navbar-brand">Busca algun producto</a>
-                        <form class="form-inline" th:action="@{/product}" method="post">
+                        <a class="navbar-brand">[[#{Product.search}]]</a>
+                       <form class="form-inline" th:action="@{/product}" method="post">
                         <input class="form-control mr-sm-2" type="text" name="nombre" placeholder="Buscar producto" aria-label="Buscar producto" id="nombre"/>
-                        <button class="btn btn-info my-2 my-sm-0" type="submit">Buscar</button>
+                        <button class="btn btn-info my-2 my-sm-0" type="submit">[[#{Product.button}]]</button>
                     </form>
+
                     </nav>
                 </div>
             </section>
