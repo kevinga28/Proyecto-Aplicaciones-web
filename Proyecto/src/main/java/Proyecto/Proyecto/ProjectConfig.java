@@ -1,7 +1,5 @@
 package Proyecto.Proyecto;
 
- 
-
 import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
@@ -21,12 +19,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
- 
-
 @Configuration
 public class ProjectConfig implements WebMvcConfigurer {
-
- 
 
 //    Es para saber en cual Locale nos encontramos ahora mismo
     @Bean
