@@ -1,3 +1,4 @@
+
 drop SCHEMA if exists ProyectoWeb;
 CREATE SCHEMA ProyectoWeb;
 
@@ -6,6 +7,16 @@ CREATE USER 'usuario_Admin'@'%' IDENTIFIED BY 'MadeByNico';
 GRANT ALL PRIVILEGES ON ProyectoWeb.* to 'usuario_Admin'@'%';
 flush privileges;
 
+
+Create table ProyectoWeb.producto(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  nombre varchar(50),
+  descripccion varchar(255),
+  precio decimal (10,2),
+  ruta_imagen text,
+  tamanio decimal(10,2),
+  color varchar(90)
+);
 CREATE TABLE ProyectoWeb.usuario (
   id_usuario INT NOT NULL AUTO_INCREMENT,
   username varchar(20) NOT NULL,
@@ -18,18 +29,12 @@ CREATE TABLE ProyectoWeb.usuario (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
+INSERT INTO ProyectoWeb.usuario (id_usuario, username,password,nombre, apellidos, correo,activo) VALUES 
+(1,'kevin','$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.','Kevin', 'Garro Rodriguez','kev@gmail.com',true),
+(2,'juan','$2a$10$GkEj.ZzmQa/aEfDmtLIh3udIH5fMphx/35d0EYeqZL5uzgCJ0lQRi','Juan',  'Contreras Mora','jsanchez@gmail.com',true),
+(3,'isma','$2a$10$koGR7eS22Pv5KdaVJKDcge04ZB53iMiw76.UjHPY.XyVYlYqXnPbO','Ismael', 'Mena Loria', 'ileon@gmail.com',true);
 
 
-
-Create table ProyectoWeb.producto(
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  nombre varchar(50),
-  descripcion varchar(255),
-  precio decimal (10,2),
-  ruta_imagen text,
-  tamanio decimal(10,2),
-  color varchar(90)
-);
 
 create table ProyectoWeb.rol (
   id_rol INT NOT NULL AUTO_INCREMENT,
@@ -41,8 +46,15 @@ create table ProyectoWeb.rol (
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4;
 
+insert into ProyectoWeb.rol (id_rol, nombre, id_usuario) values
+ (1,'ROLE_ADMIN',1), (2,'ROLE_USER',1),
+ (3,'ROLE_ADMIN',2), (4,'ROLE_USER',2),
+ (5,'ROLE_ADMIN',3), (6,'ROLE_USER',3);
 
-INSERT INTO ProyectoWeb.producto (nombre, descripcion, precio, ruta_imagen, tamanio, color)
+ 
+
+ 
+INSERT INTO ProyectoWeb.producto (nombre, descripccion, precio, ruta_imagen, tamanio, color)
 VALUES
     ('Gato', 'Diseño de gato hecho a mano', 4000, 'https://i.imgur.com/S7m9rBl.png', 13.0, 'Negro, blanco y rosado'),
     ('Nezuko', 'Diseño de nezuko kamado de demon slayer hecho a mano', 5500, 'https://i.imgur.com/PMuTTrC.png', 17.0, 'Negro, rosado, rojo y verde'),
@@ -54,10 +66,3 @@ VALUES
     ('Vaca colorida', 'Diseño de una vaca con colores inusuales', 6000, 'https://i.imgur.com/5zXjtSh.png', 25.7, 'Blanco, morado claro y oscuro'),
     ('Panda', 'Diseño de un panda hecho a mano', '5800', 'https://i.imgur.com/jW8DtoH.png', 19.2, 'Blanco y negro'),
     ('Stich', 'Diseño del personaje Stich de "Lilo y Stich"', '5000', 'https://i.imgur.com/6L1nEVd.png', 16.5, 'Azul claro y oscuro, negro y rosado');
-    
-    
-INSERT INTO ProyectoWeb.usuarios (nombre, apellido, email, password)
-VALUES ('John', 'Doe', 'JhonDemon@Gmail.com', '12345'),
-('Jane', 'Smith', 'jane.smith@example.com', 'qwerty'),
-('Michael', 'Johnson', 'michael.johnson@example.com', 'abc123');
-
