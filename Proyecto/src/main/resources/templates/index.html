@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:insert="~{template.html :: head}"></head>
     
     <body id="page-top">
@@ -8,6 +8,8 @@
         <!-- Page Content-->
         <div class="container-fluid p-0">
             <!-- About-->
+            <div class="container-fluid p-0">
+            <!-- About-->
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
                     <h1 class="mb-0">
@@ -15,38 +17,28 @@
                         <span class="text-primary">Nico</span>
                     </h1>
                     <div class="subheading mb-5">
-                        Proyectos de crochet hechos a mano · Costa Rica · (+506) 8888-8888 ·
+                        [[#{crochet}]]
                         <a href="mailto:madebynico@email.com">madebynico@email.com</a>
                     </div>
-                    <p class="lead mb-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                        when an unknown printer took a galley of type and scrambled it to make a type 
-                        specimen book. It has survived not only five centuries, but also the leap into 
-                        electronic typesetting, remaining essentially unchanged. It was popularised in 
-                        the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                        and more recently with desktop publishing software like Aldus PageMaker including 
-                        versions of Lorem Ipsum.</p>
+                    <p class="lead mb-5">[[#{descinf}]]</p>
                 </div>
             </section>
             <hr class="m-0" />
+            <span class="idiomas">
+                <a th:href="|@{/}?lang=es|">Español</a>
+                <a th:href="|@{/}?lang=en|">Ingles</a>
+            </span>
             <!-- Experience-->
             <section class="resume-section" id="experience">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Noticias</h2>
+                    <h2 class="mb-5">[[#{noticias}]]</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <h3 class="mb-0">Noticias sobre la tienda y productos</h3>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                when an unknown printer took a galley of type and scrambled it to make a type 
-                                specimen book. It has survived not only five centuries, but also the leap into 
-                                electronic typesetting, remaining essentially unchanged. It was popularised in 
-                                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                                and more recently with desktop publishing software like Aldus PageMaker including 
-                                versions of Lorem Ipsum.</p>
-                            <a href="Product.html" class="btn btn-success" role="button" aria-pressed="true">Ver noticias</a>
+                            <h3 class="mb-0">[[#{infonot}]]</h3>
+                            <p>[[#{descnot}]]</p>
+                            <a href="/product" class="btn btn-success" role="button" aria-pressed="true">[[#{botnot}]]</a>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">Publicado el 3/16/2023</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary">[[#{fechnot}]]</span></div>
                     </div>
                 </div>
             </section>
@@ -54,21 +46,14 @@
             <!-- Education-->
             <section class="resume-section" id="education">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Productos</h2>
+                    <h2 class="mb-5">[[#{productos}]]</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                when an unknown printer took a galley of type and scrambled it to make a type 
-                                specimen book. It has survived not only five centuries, but also the leap into 
-                                electronic typesetting, remaining essentially unchanged. It was popularised in 
-                                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                                and more recently with desktop publishing software like Aldus PageMaker including 
-                                versions of Lorem Ipsum.</p>
-                            <!-- Los manda directamente a la ventana de productos -->
-                            <a href="/product" class="btn btn-success" role="button" aria-pressed="true">Ver productos</a>
+                            <h3 class="mb-0">[[#{infoprod}]]</h3>
+                            <p>[[#{descprod}]]</p>
+                            <a href="/product" class="btn btn-success" role="button" aria-pressed="true">[[#{botprod}]]</a>                            
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">Publicado el 3/8/2023</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary">[[#{fechprod}]]</span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between">
                     </div>
@@ -78,20 +63,13 @@
             <!-- Interests-->
             <section class="resume-section" id="interests">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Chat en vivo</h2>
+                    <h2 class="mb-5">[[#{cev}]]</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                when an unknown printer took a galley of type and scrambled it to make a type 
-                                specimen book. It has survived not only five centuries, but also the leap into 
-                                electronic typesetting, remaining essentially unchanged. It was popularised in 
-                                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                                and more recently with desktop publishing software like Aldus PageMaker including 
-                                versions of Lorem Ipsum.</p>
-                            <a href="chat.html" class="btn btn-success" role="button" aria-pressed="true">Empezar chat</a>
+                            <p>[[#{descchat}]]</p>
+                            <a href="/chat" class="btn btn-success" role="button" aria-pressed="true">[[#{botchat}]]</a>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">Publicado el 6/16/2022</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary">[[#{fechchat}]]</span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between">
                     </div>
@@ -101,20 +79,13 @@
             <!-- Awards-->
             <section class="resume-section" id="awards">
                 <div class="resume-section-content">
-                    <h2 class="mb-5">Perfil</h2>
+                    <h2 class="mb-5">[[#{perfil}]]</h2>
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                                when an unknown printer took a galley of type and scrambled it to make a type 
-                                specimen book. It has survived not only five centuries, but also the leap into 
-                                electronic typesetting, remaining essentially unchanged. It was popularised in 
-                                the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, 
-                                and more recently with desktop publishing software like Aldus PageMaker including 
-                                versions of Lorem Ipsum.</p>
-                            <a href="personal.html" class="btn btn-success" role="button" aria-pressed="true">Opciones de perfil</a>
+                            <p>[[#{descperf}]]</p>
+                            <a href="/personal" class="btn btn-success" role="button" aria-pressed="true">[[#{botperf}]]</a>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">Publicado el 7/21/2022</span></div>
+                        <div class="flex-shrink-0"><span class="text-primary">[[#{fechperf}]]</span></div>
                     </div>
                     <div class="d-flex flex-column flex-md-row justify-content-between">
                     </div>

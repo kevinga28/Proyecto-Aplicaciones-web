@@ -11,13 +11,13 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
             </div>
-            <a href="/" class="btn btn-success" role="button" aria-pressed="true">Regresar</a>
+            <a href="/" class="btn btn-success" role="button" aria-pressed="true">[[#{botreg}]]</a>
         </nav>
         <div class="container-fluid p-0">
             <!-- About-->
             <div class="wrapper">
                 <form class="form-signin">       
-                    <h2 class="form-signin-heading">Registro</h2>
+                    <h2 class="form-signin-heading">[[#{registro}]]</h2>
                     <input type="text" class="form-control" name="name" placeholder="Nombre" required="" autofocus="" />
                     <br/>
                     <input type="text" class="form-control" name="surname" placeholder="Apellido" required="" autofocus="" />
@@ -29,10 +29,10 @@
                     <input type="password" class="form-control" name="confirmation" placeholder="Confirmar contraseña" required=""/>
                     <label class="checkbox">
                         <br/>
-                        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Recuerdame </label>
-                    <a href="#" class="btn btn-success" role="button" aria-pressed="true">Registrate</a>
+                        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe">[[#{inises.record}]]</label>
+                    <a href="#" class="btn btn-success" role="button" aria-pressed="true">[[#{registro.bot}]]</a>
                     <br/>
-                    <a class="nav-link js-scroll-trigger" href="inicio_sesion.html">Ya tienes una cuenta? Inicia Sesion</a>
+                    <a class="nav-link js-scroll-trigger" href="login.html">[[#{registro.inises}]]</a>
                 </form>
             </div>
         </div>

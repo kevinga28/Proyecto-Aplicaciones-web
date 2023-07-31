@@ -1,18 +1,12 @@
+
 drop SCHEMA if exists ProyectoWeb;
 CREATE SCHEMA ProyectoWeb;
 
 CREATE USER 'usuario_Admin'@'%' IDENTIFIED BY 'MadeByNico';
-drop user 'usuario_Admin'@'%';
+
 GRANT ALL PRIVILEGES ON ProyectoWeb.* to 'usuario_Admin'@'%';
 flush privileges;
 
-Create table ProyectoWeb.usuarios(
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  nombre VARCHAR(255),
-  apellido VARCHAR(255),
-  email VARCHAR(255),
-  password VARCHAR(255)
-);
 
 Create table ProyectoWeb.producto(
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -23,7 +17,43 @@ Create table ProyectoWeb.producto(
   tamanio decimal(10,2),
   color varchar(90)
 );
+CREATE TABLE ProyectoWeb.usuario (
+  id_usuario INT NOT NULL AUTO_INCREMENT,
+  username varchar(20) NOT NULL,
+  password varchar(200) NOT NULL,
+  nombre VARCHAR(20) NOT NULL,
+  apellidos VARCHAR(30) NOT NULL,
+  correo VARCHAR(25) NULL,
+  activo boolean,
+  PRIMARY KEY (`id_usuario`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
 
+INSERT INTO ProyectoWeb.usuario (id_usuario, username,password,nombre, apellidos, correo,activo) VALUES 
+(1,'kevin','$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.','Kevin', 'Garro Rodriguez','kev@gmail.com',true),
+(2,'juan','$2a$10$GkEj.ZzmQa/aEfDmtLIh3udIH5fMphx/35d0EYeqZL5uzgCJ0lQRi','Juan',  'Contreras Mora','jsanchez@gmail.com',true),
+(3,'isma','$2a$10$koGR7eS22Pv5KdaVJKDcge04ZB53iMiw76.UjHPY.XyVYlYqXnPbO','Ismael', 'Mena Loria', 'ileon@gmail.com',true);
+
+
+
+create table ProyectoWeb.rol (
+  id_rol INT NOT NULL AUTO_INCREMENT,
+  nombre varchar(20),
+  id_usuario int,
+  PRIMARY KEY (id_rol),
+  foreign key fk_rol_usuario (id_usuario) references usuario(id_usuario)
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+insert into ProyectoWeb.rol (id_rol, nombre, id_usuario) values
+ (1,'ROLE_ADMIN',1), (2,'ROLE_USER',1),
+ (3,'ROLE_ADMIN',2), (4,'ROLE_USER',2),
+ (5,'ROLE_ADMIN',3), (6,'ROLE_USER',3);
+
+ 
+
+ 
 INSERT INTO ProyectoWeb.producto (nombre, descripccion, precio, ruta_imagen, tamanio, color)
 VALUES
     ('Gato', 'Diseño de gato hecho a mano', 4000, 'https://i.imgur.com/S7m9rBl.png', 13.0, 'Negro, blanco y rosado'),

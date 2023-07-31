@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html th:attr="lang=${lang}" 
+      xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <head th:insert="~{template.html :: head}"></head>
+
+
+
+    <body id="page-top">    
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Made by Nico</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/logoNico.jpg" alt="..." /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+            </div>
+            <a href="/" class="btn btn-success" role="button" aria-pressed="true">[[#{botreg}]]</a>
+        </nav>
+        <!-- Page Content-->
+        <div class="container my-5">
+            <div class="wrapper">
+                <div class="col-md-3"></div>
+                <div class="form-signin-heading"><h2>[[#{inises}]]</h2></div>
+
+                <form method="POST" th:action="@{/login}">
+                    <div class="form-group row my-3">
+                        <label class="col-md-5 my-auto" for="username"><i class="fas fa-user-lock"></i>[[#{perfil.usuario}]]</label>
+                        <div class="col-md-7 my-auto">
+                            <input class="form-control" id="username" name="username" type="text"/></div>
+                    </div>
+                    <div class="form-group row my-3">
+                        <label class="col-md-5 my-auto" for="password"><i class="fas fa-key"></i>[[#{perfil.contraseña}]]</label>
+                        <div class="col-md-7 my-auto"><input class="form-control" id="password" name="password" type="password"/></div>
+                    </div>
+                    <div>
+                        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe">[[#{inises.record}]]</label>
+                    </div>
+                    <div class="card-footer col text-center">
+                        <button class="btn btn-success" type="submit">
+                            <span class="btn"><i class="fas fa-sign-in-alt"></i>
+                                [[#{inises}]]</span></button>
+                    </div>
+
+                </form>
+                <div class="form-group">
+                    <span>[[#{inises.cuenta}]] <a th:href="@{/registro}">[[#{inises.regis}]]
+                        </a></span>
+                </div>
+                <div th:if="${param.error != null}">
+                    <h3>[[#{inises.error}]]</h3>
+                </div>
+
+            </div>
+
+            <div th:insert="~{template.html :: scripts}"></div>  
+    </body>
+    <footer th:insert="~{template.html :: footer}"></footer>
+</html>
+
+
+
