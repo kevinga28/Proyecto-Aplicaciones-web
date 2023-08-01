@@ -59,7 +59,4 @@ public class ItemCarrito {
     public void setCantidad(Integer cantidad) {
         this.cantidad = cantidad;
     }
-
-    
-    
 }
