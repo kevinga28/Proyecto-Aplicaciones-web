@@ -14,7 +14,7 @@
     <name>Proyecto</name>
     <description>Proyecto de desarrollo web</description>
     <properties>
-        <java.version>19</java.version>
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
@@ -25,9 +25,6 @@
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-springsecurity6</artifactId>
         </dependency>
-
- 
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
@@ -67,7 +64,6 @@
             <version>2.0.1.Final</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>

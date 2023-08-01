@@ -1,4 +1,3 @@
-
 package Proyecto.Proyecto.entities;
 
 import jakarta.persistence.Entity;
@@ -19,7 +18,7 @@ import lombok.Data;
 
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
-
+  
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsuario;    
@@ -35,6 +34,4 @@ public class Usuario implements Serializable {
     @OneToMany
     @JoinColumn(name="id_usuario")
     private List<Rol> roles;
-
-    
 }

@@ -1,4 +1,3 @@
-
 package Proyecto.Proyecto.entities;
 
 import jakarta.persistence.Column;
@@ -8,7 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.io.Serializable;
-
 import javax.validation.constraints.NotEmpty;
 import lombok.Data;
 
@@ -22,7 +20,6 @@ public class Rol implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idRol;
-
     @NotEmpty
     private String nombre;
 

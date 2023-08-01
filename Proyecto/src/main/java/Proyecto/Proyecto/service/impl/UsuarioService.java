@@ -9,8 +9,10 @@ import Proyecto.Proyecto.service.IUsuarioService;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -104,4 +106,21 @@ public class UsuarioService implements UserDetailsService, IUsuarioService {
     public void delete(Usuario usuario) {
         this.userRepository.delete(usuario);
     }
+    
+    public Usuario getUsuarioLogueado(Authentication authentication) {
+        if (authentication == null) return null;
+        
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        String username = null;
+
+        if (principal instanceof UserDetails) {
+          username = ((UserDetails)principal).getUsername();
+        } else {
+          username = principal.toString();
+        }
+        
+        return this.getUsuarioPorUsername(username);
+    }
+    
+
 }
