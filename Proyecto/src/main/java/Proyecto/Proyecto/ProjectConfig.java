@@ -90,7 +90,7 @@ public class ProjectConfig implements WebMvcConfigurer {
                                  "/perfil/**","/personal/**",
                                  "/seguridad/**", "/admin/**" 
                         , "/AdminProductos/**" 
-                        , "/usuario/**")
+                        , "/usuario/**", "/carrito")
                 .hasRole("ADMIN"))
                 .formLogin((form) -> form.loginPage("/login")
                 .permitAll()
