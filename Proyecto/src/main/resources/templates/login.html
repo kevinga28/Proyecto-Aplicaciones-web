@@ -41,8 +41,12 @@
                                         <span class="btn"><i class="fas fa-sign-in-alt"></i>
                                             Iniciar sesion</span></button>
                                 </div>
-                                 <a  class="nav-link js-scroll-trigger" href="@{/registro}">No tienes cuenta? Registrate</a>
+                                
                             </form>
+                         <div class="form-group">
+					<span>Si eres nuevo usuario <a th:href="@{/registro}">regístrate
+							</a></span>
+				</div>
                     <div th:if="${param.error != null}">
                         <h3>Usuario incorrecto o usuario no encontrado</h3>
                     </div>

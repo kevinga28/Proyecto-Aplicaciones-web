@@ -17,21 +17,33 @@
         <div class="container-fluid p-0">
             <!-- About-->
             <div class="wrapper">
-                <form class="form-signin"th:action="@{/registro}"th:object="${usuario}">       
+                <form class="form-signin" action="#" id="formProduct" method="post">       
                     <h2 class="form-signin-heading">Registro</h2>
+                    <div class="form-group d-none">
                     <input type="text" class="form-control" name="nombre" placeholder="Nombre" required="" autofocus="" />
-                    <br/>
+                    </div>
+                    
+                      <div class="form-group d-none">
+
                     <input type="text" class="form-control" name="apellidos" placeholder="Apellido" required="" autofocus="" />
-                    <br/>
+                  </div>
+                      <div class="form-group d-none">
+
                     <input type="text" class="form-control" name="correo" placeholder="Dirección de Email" required="" autofocus="" />
-                    <br/>
+                   </div>
+                      <div class="form-group d-none">
+
                     <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" />
-                    <br/>
+            </div>
+                      <div class="form-group d-none">
+
                     <input type="password" class="form-control" name="password" placeholder="Contraseña" required=""/> 
-                    <br/>
+              </div>
+                      <div class="form-group d-none">
+
                     <input type="password" class="form-control" name="confirmation" placeholder="Confirmar contraseña" required=""/>
                     <label class="checkbox">
-                        <br/>
+                   </div>
                         <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Recuerdame </label>
                     <a href="#" class="btn btn-success" role="button" aria-pressed="true">Registrate</a>
                     <br/>

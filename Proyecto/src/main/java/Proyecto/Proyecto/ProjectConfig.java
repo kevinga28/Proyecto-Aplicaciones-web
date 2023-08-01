@@ -72,12 +72,13 @@ public class ProjectConfig implements WebMvcConfigurer {
                                  "/errores/**", 
                                  "/js/**", 
                                  "/css/**", 
-                                 "/assets/**")
+                                 "/assets/**",
+                                 "/registro/**")
                 .permitAll()
                 .requestMatchers("/product/**", "/caracteristicas/**", 
                                  "/chat/**","/pago/**",
                                  "/perfil/**","/personal/**",
-                                 "/registro/**","/seguridad/**")
+                                 "/seguridad/**")
                 .hasRole("ADMIN"))
                 .formLogin((form) -> form.loginPage("/login")
                 .permitAll()

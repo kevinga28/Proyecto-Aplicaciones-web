@@ -1,6 +1,6 @@
 
 package Proyecto.Proyecto.service.impl;
-import Proyecto.Proyecto.service.IUserDetailService;
+import Proyecto.Proyecto.db.IRolRepository;
 import Proyecto.Proyecto.db.IUserRepository;
 import Proyecto.Proyecto.entities.Usuario;
 import Proyecto.Proyecto.entities.Rol;
@@ -16,14 +16,22 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import Proyecto.Proyecto.service.IUserService;
+import java.util.List;
 
 @Service("userDetailsService")
-public class UserDetailService implements IUserDetailService, UserDetailsService{
-    @Autowired
-    private IUserRepository userRepository;
-    @Autowired
-    private HttpSession session;
-    
+public class UserService implements UserDetailsService, IUserService {
+
+    private final IUserRepository userRepository;
+    private final HttpSession session;
+
+    private final IRolRepository roleRepository;
+
+    public UserService(IUserRepository userRepository, HttpSession session, IRolRepository roleRepository) {
+        this.userRepository = userRepository;
+        this.session = session;
+        this.roleRepository = roleRepository;
+    }
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -41,13 +49,26 @@ public class UserDetailService implements IUserDetailService, UserDetailsService
         //Se devuelve User (clase UserDetails) 
         return new User(usuario.getUsername(),usuario.getPassword(),roles);
     }
+    
+    @Transactional(readOnly = true)
+    public List<Usuario> getUsuarios() {
+        return this.userRepository.findAll();
+    }
+    @Transactional(readOnly = true)
+    public Usuario getUsuario(Usuario usuario) {
+        return this.userRepository.findById(usuario.getIdUsuario()).orElse(null);
+    }
+
+     @Transactional
+    public void save(Usuario usuario, boolean crearRolUser) {
+        usuario = this.userRepository.save(usuario);
+        if (crearRolUser) {//Si se está creando el usuario, se crea el rol por defecto "USER"
+            Rol rol = new Rol();
+            rol.setNombre("ROLE_USER");
+            rol.setIdUsuario(usuario.getIdUsuario());
+            this.roleRepository.save(rol);
+        }
+    }
 }
 
-//    @Override
-//	public Usuario guardar(UsuarioRegistro registroDTO) {
-//		Usuario usuario = new Usuario(registroDTO.getUsername(), registroDTO.getPassword(),
-//                        registroDTO.getNombre(),
-//                        registroDTO.getApellidos(),registroDTO.getCorreo(),Arrays.asList(new Rol("ROLE_USER")));
-//                return userRepository.save(usuario);
-//        }
 
