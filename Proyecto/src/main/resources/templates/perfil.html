@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!-- PENDIENTE -->
+<!-- Terminado -->
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head th:insert="~{template.html :: head}"></head>
-
+    <link th:href="@{/css/views/perfil.css}" rel="stylesheet">
     <body id="page-top">
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
@@ -13,46 +13,84 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
             </div>
-            <a href="/" class="btn btn-success" role="button" aria-pressed="true" th:text="#{botreg}"></a>
+            <a href="/" class="btn btn-success" role="button" aria-pressed="true">[[#{botreg}]]</a>
         </nav>
         <!-- Page Content-->
-        <div class="container-fluid p-0">
-            <!-- About-->
+<div class="container">
+        <div class="row">
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
-                    <h2 class="mb-5" th:text="#{Modificar Perfil}"></h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <div class="container rounded bg-white mt-5 mb-5">
-                                <div class="row">
-                                    <div class="col-md-3 border-right">
-                                        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="assets/img/logoNico.jpg"><span class="font-weight-bold">User</span></div>
-                                    </div>
-                                    <div class="col-md-5 border-right">
-                                        <div class="p-3 py-5">
-                                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                                <h4 class="text-right" th:text="#{perfil.conf}"></h4>
-                                            </div>
-                                            <div class="row mt-2">
-                                                <div class="col-md-6"><label class="labels" th:text="{perfil.nombre}"></label><input type="text" class="form-control" placeholder="Nombre completo" value=""></div>
-                                                <div class="col-md-6"><label class="labels" th:text="#{perfil.apellido}"></label><input type="text" class="form-control" value="" placeholder="Apellidos"></div>
-                                            </div>
-                                            <div class="row mt-3">
-                                                <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="Ingrese su email" value=""></div>
-                                                <div class="col-md-12"><label class="labels" th:text="#{perfil.contraseña}">Contraseña</label><input type="text" class="form-control" placeholder="Ingrese su contraseña" value=""></div>
-                                            </div>
-                                            <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button" th:text="#{perfil.bot}"></button></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <h1 class="mb-0">
+                        Made by
+                        <span class="text-primary">Nico</span>
+                    </h1>
+                    <p class="lead mb-5">[[#{descinf}]]</p>
+
                 </div>
+            </section>
+            <div class="container mt-5">
+    
+<aside class="profile-card">
+  
+  <header>
+    
+    <!-- here’s the avatar -->
+    <a href="#">
+      <img src="assets/img/logoNico.jpg">
+    </a>
+
+    <!-- the username -->
+    <h1>(Nombre usuario)</h1>
+    
+    <!-- and role or location -->
+    <h2>(Username o correo)</h2>
+    
+  </header>
+  
+  <!-- bit of a bio; who are you? -->
+  <div class="profile-bio">
+    
+    <p>(Datos personales)(Lorem ipsum dolor sit amet, consectetur adipiscing 
+        elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi 
+        ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+        in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
+        mollit anim id est laborum)</p>
+    
+  </div>
+  
+  <!-- some social links to show off -->
+  <ul class="profile-social-links">
+    
+    <!-- twitter - el clásico  -->
+    <li>
+      <a href="#">
+        <img src="assets/img/icons8-email-30.png">
+      </a>
+    </li>
+    
+    <!-- envato – use this one to link to your marketplace profile -->
+    <li>
+      <a href="#">
+        <img src="assets/img/icons8-github-30.png">
+      </a>
+    </li>
+    
+    <!-- codepen - your codepen profile-->
+    <li>
+      <a href="#">
+        <img src="assets/img/icons8-bookmark-30.png">
+      </a>
+    </li>
+    
+    <!-- add or remove social profiles as you see fit -->
+    
+  </ul>
+  
+</aside>
         </div>
-        </section>
-        <hr class="m-0" />
-        </div>
+    </div>
         <div th:insert="~{template.html :: scripts}"></div>  
     </body>
 
