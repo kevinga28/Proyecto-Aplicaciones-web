@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- PENDIENTE -->
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"​​xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
     <head th:insert="~{template.html :: head}"></head>
 
     <body id="page-top">
@@ -13,7 +13,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
             </div>
-            <a href="personal.html" class="btn btn-success" role="button" aria-pressed="true">Regresar</a>
+            <a href="personal.html" class="btn btn-success" role="button" aria-pressed="true">[[#{botreg}]]</a>
         </nav>
         <!-- Page Content-->
         <div class="container-fluid p-0">

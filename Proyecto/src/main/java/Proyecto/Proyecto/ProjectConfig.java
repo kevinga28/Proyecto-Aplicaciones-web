@@ -32,6 +32,8 @@ public class ProjectConfig implements WebMvcConfigurer {
         return slr;
     }
 
+ 
+
 //    Interceptador para que realice cambios en los idiomas
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
@@ -45,6 +47,8 @@ public class ProjectConfig implements WebMvcConfigurer {
         interceptorRegistry.addInterceptor(localeChangeInterceptor());
     }
 
+ 
+
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
@@ -54,13 +58,19 @@ public class ProjectConfig implements WebMvcConfigurer {
         return messageSource;
     }
 
+ 
+
 @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/login").setViewName("login");
 
+ 
+
     }
+
+ 
 
 //Preguntar sobre porque al devolverse o hacer cualquier accion pide iniciar sesion
        @Bean
@@ -78,7 +88,9 @@ public class ProjectConfig implements WebMvcConfigurer {
                 .requestMatchers("/product/**", "/caracteristicas/**", 
                                  "/chat/**","/pago/**",
                                  "/perfil/**","/personal/**",
-                                 "/seguridad/**")
+                                 "/seguridad/**", "/admin/**" 
+                        , "/AdminProductos/**" 
+                        , "/usuario/**", "/carrito/**")
                 .hasRole("ADMIN"))
                 .formLogin((form) -> form.loginPage("/login")
                 .permitAll()
@@ -89,7 +101,7 @@ public class ProjectConfig implements WebMvcConfigurer {
     }
   @Autowired
     private UserDetailsService userDetailsService;
-    
+
     @Autowired
     public void configurerGlobal(AuthenticationManagerBuilder build) throws Exception {
         build.userDetailsService(userDetailsService).passwordEncoder(new BCryptPasswordEncoder());

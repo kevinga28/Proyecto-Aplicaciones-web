@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <!-- Coding By CodingNepal - codingnepalweb.com -->
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"​​xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
-
+<html lang="en" dir="ltr">
     <head th:insert="~{template.html :: head}"></head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
@@ -12,46 +11,33 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
             </div>
-            <a href="/" class="btn btn-success" role="button" aria-pressed="true">Regresar</a>
+            <a href="/" class="btn btn-success" role="button" aria-pressed="true">[[#{botreg}]]</a>
         </nav>
         <div class="container-fluid p-0">
             <!-- About-->
-            <div class="wrapper">
-                <form class="form-signin" action="#" id="formProduct" method="post">       
-                    <h2 class="form-signin-heading">Registro</h2>
-                    <div class="form-group d-none">
-                    <input type="text" class="form-control" name="nombre" placeholder="Nombre" required="" autofocus="" />
-                    </div>
-                    
-                      <div class="form-group d-none">
-
-                    <input type="text" class="form-control" name="apellidos" placeholder="Apellido" required="" autofocus="" />
-                  </div>
-                      <div class="form-group d-none">
-
-                    <input type="text" class="form-control" name="correo" placeholder="Dirección de Email" required="" autofocus="" />
-                   </div>
-                      <div class="form-group d-none">
-
-                    <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" />
-            </div>
-                      <div class="form-group d-none">
-
-                    <input type="password" class="form-control" name="password" placeholder="Contraseña" required=""/> 
-              </div>
-                      <div class="form-group d-none">
-
-                    <input type="password" class="form-control" name="confirmation" placeholder="Confirmar contraseña" required=""/>
-                    <label class="checkbox">
-                   </div>
-                        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Recuerdame </label>
-                    <a href="#" class="btn btn-success" role="button" aria-pressed="true">Registrate</a>
+            <div class="wrapper" >
+                <form class="form-signin" th:action="@{/registro}">       
+                    <h2 class="form-signin-heading">[[#{registro}]]</h2>
+                    <input  for="nombre" type="text" class="form-control" name="name" placeholder="Nombre" required="" autofocus="" />
                     <br/>
-                    <a class="nav-link js-scroll-trigger" href="@{/login}">Ya tienes una cuenta? Inicia Sesion</a>
+                    <input for="apellidos"  type="text" class="form-control" name="surname" placeholder="Apellido" required="" autofocus="" />
+                    <br/>
+                    <input  for="correo" type="text" class="form-control" name="correo" placeholder="Correo" required="" autofocus="" />
+                    <br/>
+                    <input  for="username" type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" />
+                    <br/>
+                    <input  for="password" type="password" class="form-control" name="password" placeholder="Contraseña" required=""/> 
+                    <br/>
+
+                        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe">[[#{inises.record}]]</label>
+      
+                      <button class="btn btn-success" type="submit" aria-pressed="true">
+                            <span class="btn"><i class="fas fa-sign-in-alt"></i>
+                                [[#{inises.regis}]]</span></button>
+                    <br/>
+                    <a class="nav-link js-scroll-trigger" href="@{/login}">[[#{registro.inises}]]</a>
+                    
                 </form>
-                	<div th:if=${param.exito}>
-					<div class="alert alert-info">Se ha registrado exitosamente a
-						la aplicación</div>
             </div>
         </div>
         <div th:insert="~{template.html :: scripts}"></div>  
