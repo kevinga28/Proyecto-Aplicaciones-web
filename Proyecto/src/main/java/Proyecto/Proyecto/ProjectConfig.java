@@ -32,6 +32,8 @@ public class ProjectConfig implements WebMvcConfigurer {
         return slr;
     }
 
+ 
+
 //    Interceptador para que realice cambios en los idiomas
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
@@ -45,6 +47,8 @@ public class ProjectConfig implements WebMvcConfigurer {
         interceptorRegistry.addInterceptor(localeChangeInterceptor());
     }
 
+ 
+
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
@@ -54,41 +58,48 @@ public class ProjectConfig implements WebMvcConfigurer {
         return messageSource;
     }
 
+ 
+
 @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/login").setViewName("login");
-         registry.addViewController("/registro").setViewName("registro");
+
+ 
+
     }
 
-    @Bean
+ 
+
+//Preguntar sobre porque al devolverse o hacer cualquier accion pide iniciar sesion
+       @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http.authorizeHttpRequests((request) -> request
+         http
+                .authorizeHttpRequests((request) -> request
                 .requestMatchers("/",
-                        "/index",
-                        "/registro",
-                        "/errores/**",
-                        "/js/**",
-                        "/css/**",
-                        "/assets/**")
+                                 "/index", 
+                                 "/errores/**", 
+                                 "/js/**", 
+                                 "/css/**", 
+                                 "/assets/**",
+                                 "/registro/**")
                 .permitAll()
-                .requestMatchers("/index", "/product/*", "/caracteristicas/*",
-                        "/chat/*","/pago/*",
-                        "/perfil/*","/personal/*",
-                        "/registro/*","/seguridad/*")
+                .requestMatchers("/product/**", "/caracteristicas/**", 
+                                 "/chat/**","/pago/**",
+                                 "/perfil/**",
+                                 "/admin/**" 
+                        , "/AdminProductos/**" 
+                        , "/usuario/**", "/carrito/**")
                 .hasRole("ADMIN"))
                 .formLogin((form) -> form.loginPage("/login")
-                        .permitAll()
-                        .defaultSuccessUrl("/", true))
+                .permitAll()
+                .defaultSuccessUrl("/", true))
                 .logout(LogoutConfigurer::permitAll)
-                .csrf().disable().cors(); // This line is important to allow ajax request from the js
+                .csrf().disable().cors();//this line is important to allow ajax request from the js
         return http.build();
     }
-    
-
-
-    @Autowired
+  @Autowired
     private UserDetailsService userDetailsService;
 
     @Autowired

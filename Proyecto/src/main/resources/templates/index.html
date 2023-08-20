@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:insert="~{template.html :: head}"></head>
-
+    
     <body id="page-top">
         <!-- Navigation-->
-        <nav th:insert="~{template.html :: nav}"></nav>
+        <div th:insert="~{template.html :: nav}"></div> 
         <!-- Page Content-->
         <div class="container-fluid p-0">
+            <!-- About-->
+            <div class="container-fluid p-0">
             <!-- About-->
             <section class="resume-section" id="about">
                 <div class="resume-section-content">
@@ -15,10 +17,10 @@
                         <span class="text-primary">Nico</span>
                     </h1>
                     <div class="subheading mb-5">
-                        Proyectos de crochet hechos a mano · Costa Rica · (+506) 8888-8888 ·
+                        [[#{crochet}]]
                         <a href="mailto:madebynico@email.com">madebynico@email.com</a>
                     </div>
-                    <p class="lead mb-5" th:text="#{descinf}"></p>
+                    <p class="lead mb-5">[[#{descinf}]]</p>
                 </div>
             </section>
             <hr class="m-0" />
@@ -81,7 +83,7 @@
                     <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                         <div class="flex-grow-1">
                             <p>[[#{descperf}]]</p>
-                            <a href="/personal" class="btn btn-success" role="button" aria-pressed="true">[[#{botperf}]]</a>
+                            <a href="/perfil" class="btn btn-success" role="button" aria-pressed="true">[[#{botperf}]]</a>
                         </div>
                         <div class="flex-shrink-0"><span class="text-primary">[[#{fechperf}]]</span></div>
                     </div>
@@ -92,6 +94,5 @@
         </div>
         <div th:insert="~{template.html :: scripts}"></div>  
     </body>
-    <!-- Footer -->
-    <footer th:insert="~{template.html :: footer}"></footer>
+        <footer th:insert="~{template.html :: footer}"></footer>
 </html>
