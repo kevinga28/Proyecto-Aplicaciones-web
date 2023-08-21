@@ -56,32 +56,48 @@ public class UsuarioService implements UserDetailsService, IUsuarioService {
     }    
 
 
+    @Override
     @Transactional(readOnly = true)
     public List<Usuario> getUsuarios() {
-        return this.userRepository.findAll();
+        return userRepository.findAll();
     }
 
-
+    @Override
     @Transactional(readOnly = true)
     public Usuario getUsuario(Usuario usuario) {
-        return this.userRepository.findById(usuario.getIdUsuario()).orElse(null);
+        return userRepository.findById(usuario.getIdUsuario()).orElse(null);
     }
 
-
+    @Override
     @Transactional(readOnly = true)
     public Usuario getUsuarioPorUsername(String username) {
-        return this.userRepository.findByUsername(username);
+        return userRepository.findByUsername(username);
     }
-//
-//@Override
-//		public Usuario createUser(Usuario user) {
-//
-//              Rol rol = new Rol();
-//            rol.setNombre("ROLE_USER");
-//		user.setPassword(user.getPassword());
-//		user.setRoles(List<Rol>rol);
-//
-//		return userRepository.save(user);
-//	}
+
+    @Override
+    @Transactional(readOnly = true)
+    public Usuario getUsuarioPorUsernameYPassword(String username, String password) {
+        return userRepository.findByUsernameAndPassword(username, password);
+    }
+
+
+@Override
+    @Transactional(readOnly = true)
+    public boolean existeUsuarioPorUsernameOCorreo(String username, String correo) {
+        return userRepository.existsByUsernameOrCorreo(username, correo);
+    }
+
+
+    @Override
+    @Transactional
+    public void save(Usuario usuario, boolean crearRolUser) {
+        usuario=userRepository.save(usuario); 
+        if (crearRolUser) {  //Si se está creando el usuario, se crea el rol por defecto "USER"
+            Rol rol = new Rol();
+            rol.setNombre("ROLE_USER");
+            rol.setIdUsuario(usuario.getIdUsuario());
+            roleRepository.save(rol);
+        }
+    }
 
 }

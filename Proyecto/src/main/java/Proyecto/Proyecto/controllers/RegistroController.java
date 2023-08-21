@@ -1,49 +1,48 @@
 
 package Proyecto.Proyecto.controllers;
 
-import Proyecto.Proyecto.db.IUsuarioRepository;
+import Proyecto.Proyecto.entities.Usuario;
+import Proyecto.Proyecto.service.IRegistroService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import Proyecto.Proyecto.entities.Usuario;
-import Proyecto.Proyecto.service.IRegistroService;
-import Proyecto.Proyecto.service.IUsuarioService;
-import jakarta.servlet.http.HttpSession;
-import java.security.Principal;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
 @Controller
+@Slf4j
 public class RegistroController {
-     @Autowired
+
+    @Autowired
     private IRegistroService registroService;
 
-
-
     @GetMapping("/registro")
-    public String registration(Model model) {
-        model.addAttribute("userForm", new Usuario());
-
-        return "registration";
+    public String nuevo(Model model, Usuario usuario) {
+        return "/registro";
     }
 
-    @PostMapping("/registro")
-    public String registration(@ModelAttribute("userForm") Usuario userForm, BindingResult bindingResult) {;
-
-        if (bindingResult.hasErrors()) {
-            return "registration";
-        }
-
-        registroService.save(userForm);
-
-
-//        return "redirect:/welcome"; ???
+    @PostMapping("/crearUsuario")
+    public String crearUsuario(Model model, Usuario usuario) 
+           {
+        model = registroService.crearUsuario(model, usuario);
+        return "/registro/salida";
     }
 
 
+    @PostMapping("/activar")
+    public String activar(
+            Usuario usuario, 
+            @RequestParam("imagenFile") MultipartFile imagenFile) {
+        registroService.activar(usuario, imagenFile);
+        return "redirect:/";
+    }
 
-	}
+
+    }
 
 

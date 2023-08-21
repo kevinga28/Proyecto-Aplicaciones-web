@@ -8,32 +8,100 @@ import Proyecto.Proyecto.db.IRolRepository;
 import Proyecto.Proyecto.db.IUsuarioRepository;
 import Proyecto.Proyecto.entities.Usuario;
 import Proyecto.Proyecto.service.IRegistroService;
+import Proyecto.Proyecto.service.IUsuarioService;
 import java.util.HashSet;
+import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.multipart.MultipartFile;
 
-/**
- *
- * @author XPC
- */
+@Service
 public class RegistroService implements IRegistroService {
-     @Autowired
-    private IUsuarioRepository userRepository;
+
+
+
     @Autowired
-    private IRolRepository roleRepository;
+    private IUsuarioService usuarioService;
+
     @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-    
-    
-     @Override
-    public void save(Usuario user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-//        user.setRoles(new HashSet<>(roleRepository.findAll()));????
-        userRepository.save(user);
+    private MessageSource messageSource;  //creado en semana 4...
+
+
+
+    @Override
+    public Model activar(Model model, String username, String clave) {
+        Usuario usuario
+                = usuarioService.getUsuarioPorUsernameYPassword(username,
+                        clave);
+        if (usuario != null) {
+            model.addAttribute("usuario", usuario);
+        } else {
+            model.addAttribute(
+                    "titulo",
+                    messageSource.getMessage(
+                            "registro.activar",
+                            null, Locale.getDefault()));
+            model.addAttribute(
+                    "mensaje",
+                    messageSource.getMessage(
+                            "registro.activar.error",
+                            null, Locale.getDefault()));
+        }
+        return model;
     }
 
     @Override
-    public Usuario findByUsername(String username) {
-        return userRepository.findByUsername(username);
+    public void activar(Usuario usuario, MultipartFile imagenFile) {
+        var codigo = new BCryptPasswordEncoder();
+        usuario.setPassword(codigo.encode(usuario.getPassword()));
+        usuario.setActivo(true);
+
+        if (!imagenFile.isEmpty()) {
+            usuarioService.save(usuario, false);
+    
+        }
+        usuarioService.save(usuario, true);
     }
-}
+
+    @Override
+    public Model crearUsuario(Model model, Usuario usuario) {
+        String mensaje;
+        if (!usuarioService.
+                existeUsuarioPorUsernameOCorreo(
+                        usuario.getUsername(),
+                        usuario.getCorreo())) {
+            String clave = "123";
+            usuario.setPassword(clave);
+            usuario.setActivo(false);
+            usuarioService.save(usuario, true);
+            mensaje = String.format(
+                    messageSource.getMessage(
+                            "registro.mensaje.activacion.ok",
+                            null,
+                            Locale.getDefault()),
+                    usuario.getCorreo());
+        } else {
+            mensaje = String.format(
+                    messageSource.getMessage(
+                            "registro.mensaje.usuario.o.correo",
+                            null,
+                            Locale.getDefault()),
+                    usuario.getUsername(), usuario.getCorreo());
+        } 
+        model.addAttribute(
+                "titulo",
+                messageSource.getMessage(
+                        "registro.activar",
+                        null,
+                        Locale.getDefault()));
+        model.addAttribute(
+                "mensaje",
+                mensaje);
+        return model;
+    }
+
+    
+    }

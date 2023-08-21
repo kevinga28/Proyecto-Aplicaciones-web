@@ -5,13 +5,15 @@
 package Proyecto.Proyecto.service;
 
 import Proyecto.Proyecto.entities.Usuario;
-
-/**
- *
- * @author XPC
- */
+import org.springframework.ui.Model;
+import org.springframework.web.multipart.MultipartFile;
 public interface IRegistroService {
-        void save(Usuario user);
 
-    Usuario findByUsername(String username);
+    public Model activar(Model model, String usuario, String clave);
+
+    public Model crearUsuario(Model model, Usuario usuario);
+    
+    public void activar(Usuario usuario, MultipartFile imagenFile);
+    
+ 
 }
