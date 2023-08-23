@@ -8,7 +8,6 @@ import Proyecto.Proyecto.entities.Usuario;
 import Proyecto.Proyecto.service.IUsuarioService;
 import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
-import static java.util.Collections.list;
 import java.util.List;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -99,5 +98,6 @@ public class UsuarioService implements UserDetailsService, IUsuarioService {
             roleRepository.save(rol);
         }
     }
+
 
 }

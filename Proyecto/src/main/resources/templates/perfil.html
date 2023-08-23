@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- PENDIENTE -->
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head th:insert="~{template.html :: head}"></head>
+
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Made by Nico</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/logoNico.jpg" alt="..." /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+            </div>
+            <a href="personal.html" class="btn btn-success" role="button" aria-pressed="true">[[#{botreg}]]</a>
+        </nav>
+        <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Modificar Perfil</h2>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <div class="container rounded bg-white mt-5 mb-5">
+                                <div class="row">
+                                    <div class="col-md-3 border-right">
+                                        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="assets/img/logoNico.jpg"><span class="font-weight-bold">User</span></div>
+                                    </div>
+                                    <div class="col-md-5 border-right">
+                                        <div class="p-3 py-5">
+                                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                                <h4 class="text-right">Profile Settings</h4>
+                                            </div>
+                                            <div class="row mt-2">
+                                                <div class="col-md-6"><label class="labels">Nombre</label><input type="text" class="form-control" placeholder="Nombre completo" value=""></div>
+                                                <div class="col-md-6"><label class="labels">Apellido</label><input type="text" class="form-control" value="" placeholder="Apellidos"></div>
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="Ingrese su email" value=""></div>
+                                                <div class="col-md-12"><label class="labels">Contraseña</label><input type="text" class="form-control" placeholder="Ingrese su contraseña" value=""></div>
+                                            </div>
+                                            <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Guardar Perfil</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        </section>
+        <hr class="m-0" />
+        </div>
+        <div th:insert="~{template.html :: scripts}"></div>  
+    </body>
+
+    <footer th:insert="~{template.html :: footer}"></footer>
+</html>

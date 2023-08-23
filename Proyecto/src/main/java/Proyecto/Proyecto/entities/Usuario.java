@@ -35,6 +35,7 @@ public class Usuario implements Serializable {
     @JoinColumn(name="id_usuario")
     private List<Rol> roles;
 
+
     public Long getIdUsuario() {
         return idUsuario;
     }
@@ -98,5 +99,5 @@ public class Usuario implements Serializable {
     public void setRoles(List<Rol> roles) {
         this.roles = roles;
     }
-    
+
 }
