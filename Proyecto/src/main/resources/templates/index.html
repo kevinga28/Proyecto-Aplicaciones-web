@@ -1,98 +1,125 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head th:insert="~{template.html :: head}"></head>
-    
-    <body id="page-top">
-        <!-- Navigation-->
-        <div th:insert="~{template.html :: nav}"></div> 
-        <!-- Page Content-->
-        <div class="container-fluid p-0">
-            <!-- About-->
+    <link th:href="@{/css/views/perfil.css}" rel="stylesheet">
+
+        <body id="page-top">
+            <!-- Navigation-->
+            <div th:insert="~{template.html :: nav}"></div> 
+            <!-- Page Content-->
             <div class="container-fluid p-0">
-            <!-- About-->
-            <section class="resume-section" id="about">
-                <div class="resume-section-content">
-                    <h1 class="mb-0">
-                        Made by
-                        <span class="text-primary">Nico</span>
-                    </h1>
-                    <div class="subheading mb-5">
-                        [[#{crochet}]]
-                        <a href="mailto:madebynico@email.com">madebynico@email.com</a>
-                    </div>
-                    <p class="lead mb-5">[[#{descinf}]]</p>
-                </div>
-            </section>
-            <hr class="m-0" />
-            <span class="idiomas">
-                <a th:href="|@{/}?lang=es|">Español</a>
-                <a th:href="|@{/}?lang=en|">Ingles</a>
-            </span>
-            <!-- Experience-->
-            <section class="resume-section" id="experience">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">[[#{noticias}]]</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">[[#{infonot}]]</h3>
-                            <p>[[#{descnot}]]</p>
-                            <a href="/product" class="btn btn-success" role="button" aria-pressed="true">[[#{botnot}]]</a>
+                <!-- About-->
+                <div class="container-fluid p-0">
+                    <!-- About-->
+                    <section class="resume-section" id="about">
+                        <div class="resume-section-content">
+                            <h1 class="mb-0">
+                                Made by
+                                <span class="text-primary">Nico</span>
+                            </h1>
+                            <div class="subheading mb-5">
+                                [[#{crochet}]]
+                                <a href="mailto:madebynico@email.com">madebynico@email.com</a>
+                            </div>
+                            <p class="lead mb-5">[[#{descinf}]]</p>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">[[#{fechnot}]]</span></div>
-                    </div>
-                </div>
-            </section>
-            <hr class="m-0" />
-            <!-- Education-->
-            <section class="resume-section" id="education">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">[[#{productos}]]</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <h3 class="mb-0">[[#{infoprod}]]</h3>
-                            <p>[[#{descprod}]]</p>
-                            <a href="/product" class="btn btn-success" role="button" aria-pressed="true">[[#{botprod}]]</a>                            
+                    </section>
+                    <hr class="m-0" />
+                    <span class="idiomas">
+                        <a th:href="|@{/}?lang=es|">Español</a>
+                        <a th:href="|@{/}?lang=en|">Ingles</a>
+                    </span>
+                    <!-- Experience-->
+                    <section class="resume-section" id="experience">
+                        <div class="resume-section-content">
+                            <h2 class="mb-5">[[#{noticias}]]</h2>
+                            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                                <div class="flex-grow-1">
+                                    <h3 class="mb-0">[[#{infonot}]]</h3>
+                                    <p class="lead mb-5">[[#{descnot}]]</p>
+                                    <a href="/product" class="btn btn-success" role="button" aria-pressed="true">[[#{botnot}]]</a>
+                                </div>
+                                <div class="flex-shrink-0"><span class="text-primary">[[#{fechnot}]]</span></div>
+                            </div>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">[[#{fechprod}]]</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                    </div>
-                </div>
-            </section>
-            <hr class="m-0" />
-            <!-- Interests-->
-            <section class="resume-section" id="interests">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">[[#{cev}]]</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <p>[[#{descchat}]]</p>
-                            <a href="/chat" class="btn btn-success" role="button" aria-pressed="true">[[#{botchat}]]</a>
+                    </section>
+                    <hr class="m-0" />
+                    <!-- Education-->
+                    <section class="resume-section" id="education">
+                        <div class="resume-section-content">
+                            <h2 class="mb-5">[[#{productos}]]</h2>
+                            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                                <div class="flex-grow-1">
+                                    <h3 class="mb-0">[[#{infoprod}]]</h3>
+                                    <p class="lead mb-5">[[#{descprod}]]</p>
+                                    <a href="/product" class="btn btn-success" role="button" aria-pressed="true">[[#{botprod}]]</a>                            
+                                </div>
+                                <div class="flex-shrink-0"><span class="text-primary">[[#{fechprod}]]</span></div>
+                            </div>
+                            <div class="d-flex flex-column flex-md-row justify-content-between">
+                            </div>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">[[#{fechchat}]]</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                    </div>
-                </div>
-            </section>
-            <hr class="m-0" />
-            <!-- Awards-->
-            <section class="resume-section" id="awards">
-                <div class="resume-section-content">
-                    <h2 class="mb-5">[[#{perfil}]]</h2>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                        <div class="flex-grow-1">
-                            <p>[[#{descperf}]]</p>
-                            <a href="/perfil" class="btn btn-success" role="button" aria-pressed="true">[[#{botperf}]]</a>
+                    </section>
+                    <hr class="m-0" />
+                    <!-- Interests-->
+                    <section class="resume-section" id="interests">
+                        <div class="resume-section-content">
+                            <h2 class="mb-5">[[#{cev}]]</h2>
+                            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                                <div class="flex-grow-1">
+                                    <p class="lead mb-5">[[#{descchat}]]</p>
+                                    <a href="/chat" class="btn btn-success" role="button" aria-pressed="true">[[#{botchat}]]</a>
+                                </div>
+                                <div class="flex-shrink-0"><span class="text-primary">[[#{fechchat}]]</span></div>
+                            </div>
+                            <div class="d-flex flex-column flex-md-row justify-content-between">
+                            </div>
                         </div>
-                        <div class="flex-shrink-0"><span class="text-primary">[[#{fechperf}]]</span></div>
-                    </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between">
-                    </div>
+                    </section>
+                    <hr class="m-0" />
+                    <!-- Awards-->
+                    <section class="resume-section" id="awards">
+                        <div class="resume-section-content">
+                            <h2 class="mb-5">[[#{perfil}]]</h2>
+                            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                                <div class="flex-grow-1">
+                                    <p class="lead mb-5">[[#{descperf}]]</p>
+                                    <aside class="profile-card custom-profile-card">
+                                        <!-- Codigo del perfil del usuario ingresado -->
+                                        <header>
+                                            <a href="#">
+                                                <img src="assets/img/logoNico.jpg">
+                                            </a>
+                                            <h1 sec:authentication="name">(Nombre usuario)</h1>
+                                        </header>
+
+                                        <!-- Social Media del perfil -->
+                                        <ul class="profile-social-links">
+                                            <li>
+                                                <a href="#">
+                                                    <img src="assets/img/icons8-email-30.png">
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <img src="assets/img/icons8-github-30.png">
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <img src="assets/img/icons8-bookmark-30.png">
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </aside>
+                                    <div class="d-flex flex-column flex-md-row justify-content-between">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-            </section>
-        </div>
-        <div th:insert="~{template.html :: scripts}"></div>  
-    </body>
+                <div th:insert="~{template.html :: scripts}"></div>  
+        </body>
         <footer th:insert="~{template.html :: footer}"></footer>
 </html>
