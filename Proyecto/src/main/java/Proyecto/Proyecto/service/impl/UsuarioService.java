@@ -35,7 +35,7 @@ public class UsuarioService implements UserDetailsService, IUsuarioService {
         this.roleRepository = roleRepository;
     }
 
-    @Override
+
     
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -55,72 +55,49 @@ public class UsuarioService implements UserDetailsService, IUsuarioService {
     }    
 
 
+    @Override
     @Transactional(readOnly = true)
     public List<Usuario> getUsuarios() {
-        return this.userRepository.findAll();
+        return userRepository.findAll();
     }
 
-
+    @Override
     @Transactional(readOnly = true)
     public Usuario getUsuario(Usuario usuario) {
-        return this.userRepository.findById(usuario.getIdUsuario()).orElse(null);
+        return userRepository.findById(usuario.getIdUsuario()).orElse(null);
     }
 
-
+    @Override
     @Transactional(readOnly = true)
     public Usuario getUsuarioPorUsername(String username) {
-        return this.userRepository.findByUsername(username);
+        return userRepository.findByUsername(username);
     }
 
-
+    @Override
     @Transactional(readOnly = true)
     public Usuario getUsuarioPorUsernameYPassword(String username, String password) {
-        return this.userRepository.findByUsernameAndPassword(username, password);
+        return userRepository.findByUsernameAndPassword(username, password);
     }
 
 
-    @Transactional(readOnly = true)
-    public Usuario getUsuarioPorUsernameOCorreo(String username, String correo) {
-        return this.userRepository.findByUsernameOrCorreo(username, correo);
-    }
-
-
+@Override
     @Transactional(readOnly = true)
     public boolean existeUsuarioPorUsernameOCorreo(String username, String correo) {
-        return this.userRepository.existsByUsernameOrCorreo(username, correo);
+        return userRepository.existsByUsernameOrCorreo(username, correo);
     }
 
 
+    @Override
     @Transactional
     public void save(Usuario usuario, boolean crearRolUser) {
-        usuario = this.userRepository.save(usuario);
-        if (crearRolUser) {//Si se está creando el usuario, se crea el rol por defecto "USER"
+        usuario=userRepository.save(usuario); 
+        if (crearRolUser) {  //Si se está creando el usuario, se crea el rol por defecto "USER"
             Rol rol = new Rol();
             rol.setNombre("ROLE_USER");
             rol.setIdUsuario(usuario.getIdUsuario());
-            this.roleRepository.save(rol);
+            roleRepository.save(rol);
         }
     }
 
-    @Transactional
-    public void delete(Usuario usuario) {
-        this.userRepository.delete(usuario);
-    }
-    
-    public Usuario getUsuarioLogueado(Authentication authentication) {
-        if (authentication == null) return null;
-        
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        String username = null;
-
-        if (principal instanceof UserDetails) {
-          username = ((UserDetails)principal).getUsername();
-        } else {
-          username = principal.toString();
-        }
-        
-        return this.getUsuarioPorUsername(username);
-    }
-    
 
 }
