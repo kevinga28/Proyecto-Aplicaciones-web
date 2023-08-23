@@ -1,4 +1,3 @@
-
 //CREATE AND UPDATE
 const serviceEntity = "product";
 const idNameToUse = "idproduct";

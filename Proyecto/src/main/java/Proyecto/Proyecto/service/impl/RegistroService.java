@@ -9,9 +9,11 @@ import Proyecto.Proyecto.db.IUsuarioRepository;
 import Proyecto.Proyecto.entities.Usuario;
 import Proyecto.Proyecto.service.IRegistroService;
 import Proyecto.Proyecto.service.IUsuarioService;
+import jakarta.mail.MessagingException;
 import java.util.HashSet;
 import java.util.Locale;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -21,10 +23,11 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class RegistroService implements IRegistroService {
 
-
+    @Autowired
+    private CorreoService correoService;
 
     @Autowired
-    private IUsuarioService usuarioService;
+    private UsuarioService usuarioService;
 
     @Autowired
     private MessageSource messageSource;  //creado en semana 4...
@@ -59,15 +62,12 @@ public class RegistroService implements IRegistroService {
         usuario.setPassword(codigo.encode(usuario.getPassword()));
         usuario.setActivo(true);
 
-        if (!imagenFile.isEmpty()) {
-            usuarioService.save(usuario, false);
-    
-        }
+
         usuarioService.save(usuario, true);
     }
 
     @Override
-    public Model crearUsuario(Model model, Usuario usuario) {
+    public Model crearUsuario(Model model, Usuario usuario) throws MessagingException {
         String mensaje;
         if (!usuarioService.
                 existeUsuarioPorUsernameOCorreo(
@@ -77,6 +77,7 @@ public class RegistroService implements IRegistroService {
             usuario.setPassword(clave);
             usuario.setActivo(false);
             usuarioService.save(usuario, true);
+            enviaCorreoActivar(usuario, clave);
             mensaje = String.format(
                     messageSource.getMessage(
                             "registro.mensaje.activacion.ok",
@@ -104,4 +105,25 @@ public class RegistroService implements IRegistroService {
     }
 
     
+
+
+    //Ojo cómo le lee una informacion del application.properties
+    @Value("${servidor.http}")
+    private String servidor;
+
+    private void enviaCorreoActivar(Usuario usuario, String clave) throws MessagingException {
+        String mensaje = messageSource.getMessage(
+                "registro.correo.activar",
+                null, Locale.getDefault());
+        mensaje = String.format(
+                mensaje, usuario.getNombre(),
+                usuario.getApellidos(), servidor,
+                usuario.getUsername(), clave);
+        String asunto = messageSource.getMessage(
+                "registro.mensaje.activacion",
+                null, Locale.getDefault());
+        correoService.enviarCorreoHtml(usuario.getCorreo(), asunto, mensaje);
     }
+
+   
+}
